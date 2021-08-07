@@ -1,0 +1,21 @@
+.warehouse
+{
+    border: none;
+}
+
+.warehouse:hover
+{
+    cursor: pointer;
+}
+
+.warehouse_color
+{
+    background-color: #71b6a5;
+}
+
+.nav_bar
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

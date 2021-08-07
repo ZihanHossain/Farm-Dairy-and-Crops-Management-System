@@ -1,0 +1,38 @@
+body
+{
+  background-color: #F7F7F7;
+}
+
+.table-wrap {
+    height: 50vh;
+    overflow-y: auto;
+    /* color: crimson; */
+  }
+
+.align-items-center
+{
+  text-align: center;
+}
+
+.right_section
+{
+  padding-top: 100px;
+}
+
+.right_section_items
+{
+  padding-top: 30px;
+}
+
+.table_title
+{
+  background-color: cornsilk;
+  width: 100%;
+}
+
+.right_button
+{
+  padding-top: 5px;
+  display: flex;
+  justify-content: flex-end;
+}
