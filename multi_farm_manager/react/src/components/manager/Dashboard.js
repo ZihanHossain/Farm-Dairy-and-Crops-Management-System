@@ -2,8 +2,9 @@ import React from 'react'
 import Navbar from './Navbar'
 import Home from './Home';
 import { Col, Container, Row } from 'react-bootstrap'
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import { Button } from 'react-bootstrap';
+import Staffs from './Staffs';
 //import { useFetch } from './useFetch';
 //import { useState } from 'react';
 
@@ -13,19 +14,22 @@ function Dashboard() {
         <div>
             <Container>
                 <Row>
-                    <Col sm={4}>
-                        <Navbar />
-                    </Col>
-                    <Col sm={8}>
-                        <div className="d-flex justify-content-end">
-                            <Button>Log Out</Button>
-                        </div>
-                        <Router>
+                    <Router>
+                        <Col sm={2}>
+                            <Navbar />
+                        </Col>
+                        <Col sm={10}>
+                            <div className="d-flex justify-content-end">
+                                <Button>Log Out</Button>
+                            </div>
                             <Route path='/manager/home'>
                                 <Home />
                             </Route>
-                        </Router>
-                    </Col>
+                            <Route path='/manager/staff'>
+                                <Staffs />
+                            </Route>
+                        </Col>
+                    </Router>
                 </Row>
             </Container>
         </div>

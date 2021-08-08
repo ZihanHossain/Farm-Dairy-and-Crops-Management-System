@@ -19,3 +19,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/manager/home', 'App\Http\Controllers\DF_DashboardController@index');
+Route::get('manager/staff', 'App\Http\Controllers\StaffController@index');
+Route::get('manager/staff/delete/{id}', 'App\Http\Controllers\StaffController@delete_staff');

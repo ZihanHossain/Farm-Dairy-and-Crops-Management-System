@@ -1,15 +1,16 @@
 import React from 'react'
 import { Nav } from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 
 function Navbar() {
     return (
         <Nav className="flex-column">
-            <Nav.Link href="/manager/home">
-                Dashboard
-            </Nav.Link>
-            <Nav.Link href="b">
-                Staff
-            </Nav.Link>
+            <Nav>
+                <Link to="/manager/home">Home</Link> 
+            </Nav>
+            <Nav>
+                <Link to="/manager/staff">Staff</Link> 
+            </Nav>
         </Nav>
     );
 }
