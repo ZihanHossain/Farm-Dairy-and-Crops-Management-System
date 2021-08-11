@@ -1,10 +1,11 @@
 import React from 'react'
 import Navbar from './Navbar'
 import Home from './Home';
-import { Col, Container, Row } from 'react-bootstrap'
-import {BrowserRouter as Router, Route} from 'react-router-dom';
-import { Button } from 'react-bootstrap';
+import { Col, Container, Row, Button } from 'react-bootstrap'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Staffs from './Staffs';
+import AddStaff from './AddStaff';
+import EditStaff from './EditStaff';
 //import { useFetch } from './useFetch';
 //import { useState } from 'react';
 
@@ -22,12 +23,20 @@ function Dashboard() {
                             <div className="d-flex justify-content-end">
                                 <Button>Log Out</Button>
                             </div>
-                            <Route path='/manager/home'>
-                                <Home />
-                            </Route>
-                            <Route path='/manager/staff'>
-                                <Staffs />
-                            </Route>
+                            <Switch>
+                                <Route path='/manager/home'>
+                                    <Home />
+                                </Route>
+                                <Route path='/manager/staff/add'>
+                                    <AddStaff />
+                                </Route>
+                                <Route path='/manager/staff/edit/:id'>
+                                    <EditStaff />
+                                </Route>
+                                <Route path='/manager/staff'>
+                                    <Staffs />
+                                </Route>
+                            </Switch>
                         </Col>
                     </Router>
                 </Row>

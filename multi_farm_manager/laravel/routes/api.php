@@ -18,6 +18,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/manager/home', 'App\Http\Controllers\DF_DashboardController@index');
+Route::get('manager/home', 'App\Http\Controllers\DF_DashboardController@index');
 Route::get('manager/staff', 'App\Http\Controllers\StaffController@index');
 Route::get('manager/staff/delete/{id}', 'App\Http\Controllers\StaffController@delete_staff');
+Route::get('manager/getshiftdetails', 'App\Http\Controllers\StaffController@get_shift_details');
+Route::post('manager/staff/add', 'App\Http\Controllers\StaffController@register_staff');
+Route::get('manager/getstaffdetails/{id}', 'App\Http\Controllers\StaffController@staff_details');
+Route::post('manager/staff/edit/{id}', 'App\Http\Controllers\StaffController@edit_staff');

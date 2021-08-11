@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useStaffFetch } from './useStaffFetch';
 //import Staff from './Staff';
 import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 function Staffs() {
 
@@ -22,7 +23,7 @@ function Staffs() {
     return (
         <div>
             <h3>Staff Information</h3>
-            <Button>Add</Button>
+            <Link to={"/manager/staff/add"}><Button>Add</Button></Link>
             <Table striped bordered hover size="sm">
                 <thead>
                     <tr>
@@ -42,10 +43,10 @@ function Staffs() {
                             (
                                 <tr>
                                     <td>{user.u_id}</td>
-                                    <td><img src={require(`../../images/staffprofile/${user.image}`)} alt="error"/></td>
+                                    <td>df</td>
                                     <td>{user.name}</td>
                                     <td>{user.type}</td>
-                                    <td><Button onClick={() => handleDelete(user.u_id)}>Delete</Button></td>
+                                    <td><Button onClick={() => handleDelete(user.u_id)}>Delete</Button> <Link to={`/manager/staff/edit/${user.u_id}`}><Button>Edit</Button></Link></td>
                                 </tr>
                             )
                         )

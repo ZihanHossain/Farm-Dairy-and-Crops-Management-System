@@ -25,22 +25,22 @@ class StaffController extends Controller
 
     function register_staff(Request $req)
     {
-        $validated = $req->validate([
-            'name' => 'required',
-            'user_name' => 'required',
-            'password' => 'required|min:8',
-            'email' => 'required|min:8|email',
-            'salary' => 'integer',
-            'gender' => 'required',
-            'type' => 'required',
-            'shift_id' => 'required',
-        ]);
+        // $validated = $req->validate([
+        //     'name' => 'required',
+        //     'user_name' => 'required',
+        //     'password' => 'required|min:8',
+        //     'email' => 'required|min:8|email',
+        //     'salary' => 'integer',
+        //     'gender' => 'required',
+        //     'type' => 'required',
+        //     'shift_id' => 'required',
+        // ]);
 
-        if ($req->hasFile('image')) {
-            $image = $req->file('image');
+        // if ($req->hasFile('image')) {
+        //     $image = $req->file('image');
 
-            $image->move('images/staff_profile_picture', $image->getClientOriginalName());
-        }
+        //     $image->move('images/staff_profile_picture', $image->getClientOriginalName());
+        // }
 
         $user = new User();
 
@@ -48,9 +48,9 @@ class StaffController extends Controller
         $user->email = $req->email;
         $user->type = $req->type;
         $user->gender = $req->gender;
-        $user->salary = $req->salary;
-        $user->sh_id = $req->shift_id;
-        $user->image = $image->getClientOriginalName();
+        $user->salary = (int)$req->salary;
+        $user->sh_id = (int)$req->shift_id;
+        // $user->image = $image->getClientOriginalName();
         $user->save();
 
         $user = User::where('email', $req->email)
@@ -59,39 +59,41 @@ class StaffController extends Controller
         $login_info = new Login_info();
 
         $login_info->u_id = $user->u_id;
-        $login_info->user_name = $req->user_name;
+        $login_info->user_name = $req->username;
         $login_info->password = $req->password;
 
         $login_info->save();
 
-        return redirect('home/dairyfarm/staff');
+        return response()->json("success", 200);
+
+        // return redirect('home/dairyfarm/staff');
     }
 
     function edit_staff(Request $req, $u_id)
     {
 
-        $validated = $req->validate([
-            'name' => 'required',
-            'user_name' => 'required',
-            'password' => 'required|min:8',
-            'email' => 'required|min:8|email',
-            'salary' => 'integer',
-            'gender' => 'required',
-            'type' => 'required',
-            'sh_id' => 'required',
-        ]);
+        // $validated = $req->validate([
+        //     'name' => 'required',
+        //     'user_name' => 'required',
+        //     'password' => 'required|min:8',
+        //     'email' => 'required|min:8|email',
+        //     'salary' => 'integer',
+        //     'gender' => 'required',
+        //     'type' => 'required',
+        //     'sh_id' => 'required',
+        // ]);
 
         $user = User::find($u_id);
 
-        if (file_exists('images/staff_profile_picture' . $req->image)) {
-        } else {
-            if ($req->hasFile('image')) {
-                $image = $req->file('image');
+        // if (file_exists('images/staff_profile_picture' . $req->image)) {
+        // } else {
+        //     if ($req->hasFile('image')) {
+        //         $image = $req->file('image');
 
-                $user->image = $image->getClientOriginalName();
-                $image->move('images/staff_profile_picture', $image->getClientOriginalName());
-            }
-        }
+        //         $user->image = $image->getClientOriginalName();
+        //         $image->move('images/staff_profile_picture', $image->getClientOriginalName());
+        //     }
+        // }
 
 
 
@@ -99,21 +101,31 @@ class StaffController extends Controller
         $user->name = $req->name;
         $user->email = $req->email;
         $user->type = $req->type;
-        $user->salary = $req->salary;
+        $user->gender = $req->gender;
+        $user->salary = (int)$req->salary;
+        $user->sh_id = (int)$req->shift_id;
 
         $user->save();
 
         $login_info = Login_info::find($u_id);
 
-        $login_info->user_name = $req->user_name;
+        $login_info->user_name = $req->username;
         $login_info->password = $req->password;
 
         $login_info->save();
 
-        return redirect('home/dairyfarm/staff');
+        return response()->json('success', 200);
+        // return redirect('home/dairyfarm/staff');
     }
 
-    function staff_details(Request $req, $u_id)
+    function get_shift_details()
+    {
+        $shift_details = Shift_details::all();
+
+        return response()->json($shift_details, 200);
+    }
+
+    function staff_details($u_id)
     {
         $user = User::where('u_id', $u_id)
             ->get();
@@ -123,9 +135,11 @@ class StaffController extends Controller
 
         // echo count($user);
 
-        return view('home_farm_manager.edit_staff')->with('user', $user[0])
-            ->with('login_info', $login_info[0])
-            ->with('shift_details', $shift_details);
+        return response()->json([$user, $login_info, $shift_details], 200);
+
+        // return view('home_farm_manager.edit_staff')->with('user', $user[0])
+        //     ->with('login_info', $login_info[0])
+        //     ->with('shift_details', $shift_details);
     }
 
     function delete_staff(Request $req, $u_id)
