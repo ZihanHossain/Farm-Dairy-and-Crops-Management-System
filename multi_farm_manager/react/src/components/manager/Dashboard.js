@@ -1,11 +1,13 @@
 import React from 'react'
 import Navbar from './Navbar'
 import Home from './Home';
-import { Col, Container, Row, Button } from 'react-bootstrap'
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Staffs from './Staffs';
 import AddStaff from './AddStaff';
 import EditStaff from './EditStaff';
+import AddCow from './AddCow';
+import Cows from './Cows';
+import { Col, Container, Row, Button } from 'react-bootstrap'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 //import { useFetch } from './useFetch';
 //import { useState } from 'react';
 
@@ -35,6 +37,12 @@ function Dashboard() {
                                 </Route>
                                 <Route path='/manager/staff'>
                                     <Staffs />
+                                </Route>
+                                <Route path='/manager/cow/add'>
+                                    <AddCow />
+                                </Route>
+                                <Route path='/manager/cow'>
+                                    <Cows />
                                 </Route>
                             </Switch>
                         </Col>

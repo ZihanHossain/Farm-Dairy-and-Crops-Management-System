@@ -11,6 +11,9 @@ function Navbar() {
             <Nav>
                 <Link to="/manager/staff">Staff</Link> 
             </Nav>
+            <Nav>
+                <Link to="/manager/cow">Cows Information</Link> 
+            </Nav>
         </Nav>
     );
 }
