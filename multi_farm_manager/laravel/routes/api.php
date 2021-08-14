@@ -25,3 +25,10 @@ Route::get('manager/getshiftdetails', 'App\Http\Controllers\StaffController@get_
 Route::post('manager/staff/add', 'App\Http\Controllers\StaffController@register_staff');
 Route::get('manager/getstaffdetails/{id}', 'App\Http\Controllers\StaffController@staff_details');
 Route::post('manager/staff/edit/{id}', 'App\Http\Controllers\StaffController@edit_staff');
+Route::get('manager/cow', 'App\Http\Controllers\Cow_DetailsController@index');
+Route::get('manager/cow/delete/{id}', 'App\Http\Controllers\Cow_DetailsController@delete_cow');
+Route::post('manager/cow/add', 'App\Http\Controllers\Cow_DetailsController@add_cow');
+
+Route::get('manager/newborn', 'App\Http\Controllers\New_Born_CowController@index');
+Route::get('manager/newborn/confirm/{id}', 'App\Http\Controllers\New_Born_CowController@confirm_cow');
+Route::post('login', 'App\Http\Controllers\LoginController@socialLogin');
