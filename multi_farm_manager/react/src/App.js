@@ -1,9 +1,10 @@
+import Login from "./components/Login";
 import Dashboard from "./components/manager/Dashboard";
 
 function App() {
   return (
     <div>
-      <Dashboard />
+      <Login />
     </div>
   );
 }

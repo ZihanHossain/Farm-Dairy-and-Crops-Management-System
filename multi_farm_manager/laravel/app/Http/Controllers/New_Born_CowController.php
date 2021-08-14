@@ -15,19 +15,18 @@ class New_Born_CowController extends Controller
         $new_borns = New_born::all();
         $cows = [];
 
-        foreach($new_borns as $new_born)
-        {
+        foreach ($new_borns as $new_born) {
             $cow = Cow::where('co_id', $new_born['co_id'])
                 ->first();
             array_push($cows, $cow);
         }
-        
 
-        return view('home_farm_manager.new_born_cow')
-            ->with('cows', $cows);
+        return response()->json($cows, 200);
+        // return view('home_farm_manager.new_born_cow')
+        //     ->with('cows', $cows);
     }
 
-    function add_cow($co_id)
+    function confirm_cow($co_id)
     {
         $new_born = New_born::where('co_id', $co_id)->delete();
 
@@ -36,6 +35,17 @@ class New_Born_CowController extends Controller
         $permanent_cow->co_id = $co_id;
         $permanent_cow->save();
 
-        return redirect('/home/new_born_cow');
+
+        $new_borns = New_born::all();
+        $cows = [];
+
+        foreach ($new_borns as $new_born) {
+            $cow = Cow::where('co_id', $new_born['co_id'])
+                ->first();
+            array_push($cows, $cow);
+        }
+
+        return response()->json($cows, 200);
+        // return redirect('/home/new_born_cow');
     }
 }
