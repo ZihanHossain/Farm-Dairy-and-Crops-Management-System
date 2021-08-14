@@ -66,5 +66,6 @@ class Kernel extends HttpKernel
         'adminv' => \App\Http\Middleware\AdminVarify::class,
         'cropsess' => \App\Http\Middleware\CropSessionVerify::class,
         'dairysess' => \App\Http\Middleware\DairySessionVerify::class,
+        'cors'          => \App\Http\Middleware\Cors::class,
     ];
 }

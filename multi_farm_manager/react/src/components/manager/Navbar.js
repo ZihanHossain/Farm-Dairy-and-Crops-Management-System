@@ -14,6 +14,9 @@ function Navbar() {
             <Nav>
                 <Link to="/manager/cow">Cows Information</Link> 
             </Nav>
+            <Nav>
+                <Link to="/manager/newborn">New Born Cows</Link> 
+            </Nav>
         </Nav>
     );
 }
