@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import { googleProvider } from "../config/authMethord";
 import socialMediaAuth from '../service/auth';
 
@@ -22,6 +23,7 @@ function Login() {
     return (
         <div>
             <button onClick={() => handleGoogleLogin(googleProvider)}>Google</button>
+            <Link to="/manager"><button>LOL</button></Link>
         </div>
     )
 }
