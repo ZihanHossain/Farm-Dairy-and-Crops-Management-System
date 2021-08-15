@@ -22,6 +22,7 @@ function Login() {
 
     return (
         <div>
+
             <center><b><h1> Login Page </h1></b></center>
 
             <center>
@@ -47,6 +48,10 @@ function Login() {
             <button onClick={() => handleGoogleLogin(googleProvider)}>Google</button>
             <Link to="/manager"><button>LOL</button></Link>
             <Link to="/customer"><button>Customer Dashboard</button></Link>
+              
+            <button onClick={() => handleGoogleLogin(googleProvider)}>Google</button>
+            <Link to="/manager"><button>LOL</button></Link>
+
         </div>
     )
 }

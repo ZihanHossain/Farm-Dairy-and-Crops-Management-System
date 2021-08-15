@@ -6,9 +6,11 @@ import AddStaff from './AddStaff';
 import EditStaff from './EditStaff';
 import AddCow from './AddCow';
 import Cows from './Cows';
+
 import CustomerProfile from '../customer/CustomerProfile';
 import CropItems from '../customer/CropItems';
 import DairyItems from '../customer/DairyItems';
+
 import { Col, Container, Row, Button } from 'react-bootstrap';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import NewBornCows from './NewBornCows';
@@ -55,6 +57,7 @@ const Dashboard = ({type}) => {
                                 <Route path='/manager/milkcollection'>
                                     <MilkCollection />
                                 </Route>
+
                                 <Route path="/customer/profile">
                                     <CustomerProfile />
                                 </Route>
@@ -64,6 +67,7 @@ const Dashboard = ({type}) => {
                                 <Route path="/customer/dairies">
                                     <DairyItems />
                                 </Route>
+
                             </Switch>
                         </Col>
                     </Router>
