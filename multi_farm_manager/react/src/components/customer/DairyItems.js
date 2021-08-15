@@ -1,6 +1,25 @@
+import React from 'react';
+import { Table } from 'react-bootstrap';
+import { useState } from 'react';
+import { UseDairyItemFetch } from './UseDairyItemFetch';
 
+import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 function DairyItems() {
+
+    const [dairyItems, setDairyItems] = useState([]);
+
+    UseDairyItemFetch('http://localhost:8000/api/customer/dairies', setDairyItems);
+
+    const handleConfirm = (id) =>
+    {
+        const url = `http://127.0.0.1:8000/api/manager/newborn/confirm/${id}`;
+        fetch(url);
+        const data = cows.filter((cow) => cow.co_id != id);
+        setCows(data)
+    }
+
     return (
         <div>
             <br/>
@@ -19,12 +38,18 @@ function DairyItems() {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>01</td>
-                        <td>Milk</td>
-                        <td>50</td>
-                        <td><a href=""><i className="fa fa-pencil"></i>Details</a></td>
-                    </tr>
+                    {
+                        dairyItems.map( item =>
+                            (
+                                <tr>
+                                    <td>{item.i_id}</td>
+                                    <td>{item.name}</td>
+                                    <td>{item.price}</td>
+                                    <td><a href=""><i className="fa fa-pencil"></i>Details</a></td>
+                                </tr>
+                            )
+                        )
+                    }
                 </tbody>
             </table>
            </center>
