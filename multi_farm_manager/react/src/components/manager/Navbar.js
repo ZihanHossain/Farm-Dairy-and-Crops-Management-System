@@ -25,6 +25,7 @@ const Navbar = ({typee}) => {
             </Nav>
         );
     }
+
     else if(typee=="customer")
     {
         return(
@@ -35,6 +36,7 @@ const Navbar = ({typee}) => {
         </Nav>
         );
     }
+
 }
 
 export default Navbar
