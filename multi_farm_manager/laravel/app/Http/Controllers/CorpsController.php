@@ -14,8 +14,12 @@ class CorpsController extends Controller
         ->get();
         $p_item = ProducedItem::where('i_id', 2)
         ->get();
+		
+		return response()->json($item, 200);
 
-        return view('customer.corpsIndex')->with('items', $item)
+        
+		/*return view('customer.corpsIndex')->with('items', $item)
                                         ->with('pItems', $p_item);
+		*/
     }
 }

@@ -1,6 +1,13 @@
+import React from 'react';
+import { useState } from 'react';
+import { UseCropItemFetch } from './UseCropItemFetch';
 
 
 function CropItems() {
+    const [cropItems, setCropItems] = useState([]);
+
+    UseCropItemFetch('http://localhost:8000/api/customer/crops', setCropItems);
+
     return (
         <div>
             <br/>
@@ -19,12 +26,19 @@ function CropItems() {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>01</td>
-                        <td>Corn</td>
-                        <td>100</td>
-                        <td><a href=""><i className="fa fa-pencil"></i>Details</a></td>
-                    </tr>
+                    {
+                        cropItems.map( item =>
+                            (
+                                <tr>
+                                    <td>{item.i_id}</td>
+                                    <td>{item.name}</td>
+                                    <td>{item.price}</td>
+                                    <td><a href=""><i className="fa fa-pencil"></i>Details</a></td>
+                                </tr>
+                            )
+                        )
+                        
+                    }
                 </tbody>
             </table>
            </center>
