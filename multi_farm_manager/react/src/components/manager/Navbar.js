@@ -25,6 +25,18 @@ const Navbar = ({typee}) => {
             </Nav>
         );
     }
+
+    else if(typee=="customer")
+    {
+        return(
+        <Nav> 
+            <Link to="/customer/profile"> Profile </Link>|| 
+            <Link to="/customer/dairies"> Dairy Items </Link>|| 
+            <Link to="/customer/crops"> Cops Items </Link>
+        </Nav>
+        );
+    }
+
 }
 
 export default Navbar
