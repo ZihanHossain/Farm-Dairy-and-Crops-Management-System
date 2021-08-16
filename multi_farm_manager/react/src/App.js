@@ -4,8 +4,11 @@ import Registration from "./components/customer/Registration";
 
 import Dashboard from "./components/manager/Dashboard";
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import TestPDF from "./components/manager/TestPDF";
+
 
 function App() {
+  
   return (
     <div>
       <Router>
@@ -15,6 +18,9 @@ function App() {
           </Route>
           <Route path="/manager">
             <Dashboard type='manager'/>
+          </Route>
+          <Route path="/test">
+            <TestPDF />
           </Route>
     
           <Route path="/customer">

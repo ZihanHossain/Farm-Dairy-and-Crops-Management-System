@@ -34,4 +34,4 @@ Route::get('manager/newborn/confirm/{id}', 'App\Http\Controllers\New_Born_CowCon
 
 Route::post('login', 'App\Http\Controllers\LoginController@socialLogin');
 Route::get('manager/milkcollection', 'App\Http\Controllers\Milk_CollectionController@index');
-
+Route::get('manager/milkcollection/cowdetails/{id}', 'App\Http\Controllers\Milk_CollectionController@details');
