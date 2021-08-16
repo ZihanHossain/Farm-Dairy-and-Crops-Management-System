@@ -12,9 +12,12 @@ class CustomerProfileController extends Controller
     {
         $login = Login_info::where('u_id', $req->session()->get('u_id'))->first();
         $user = User::where('u_id', $req->session()->get('u_id'))->first();
-        return view('customer.profile')
+        
+		return response()->json($user, 200);
+		
+		/*return view('customer.profile')
                 ->with('login', $login)
-                ->with('user', $user);
+                ->with('user', $user);*/
     }
 
     public function deleteProfile(Request $req, $u_id)

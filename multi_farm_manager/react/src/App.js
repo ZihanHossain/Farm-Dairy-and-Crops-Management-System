@@ -30,6 +30,10 @@ function App() {
             <Registration />
           </Route>
 
+          <Route path="/cropworker">
+            <Dashboard type='cropworker'/>
+          </Route>
+
         </Switch>
       </Router>
     </div>
