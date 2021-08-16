@@ -15,6 +15,7 @@ import { Col, Container, Row, Button } from 'react-bootstrap';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import NewBornCows from './NewBornCows';
 import MilkCollection from './MilkCollection';
+import CowDetails from './CowDetails';
 //import { useFetch } from './useFetch';
 //import { useState } from 'react';
 
@@ -56,10 +57,14 @@ const Dashboard = ({type}) => {
                                 <Route path='/manager/newborn'>
                                     <NewBornCows />
                                 </Route>
+                                <Route path='/manager/milkcollection/cowdetails/:id'>
+                                    <CowDetails />
+                                </Route>
                                 <Route path='/manager/milkcollection'>
                                     <MilkCollection />
                                 </Route>
 
+                                {/* -------->Customer<-------- */}
                                 <Route path="/customer/profile">
                                     <CustomerProfile />
                                 </Route>
