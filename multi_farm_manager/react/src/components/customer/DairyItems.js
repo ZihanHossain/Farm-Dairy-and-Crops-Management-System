@@ -14,10 +14,10 @@ function DairyItems() {
 
     const handleConfirm = (id) =>
     {
-        const url = `http://127.0.0.1:8000/api/manager/newborn/confirm/${id}`;
-        fetch(url);
-        const data = cows.filter((cow) => cow.co_id != id);
-        setCows(data)
+        // const url = `http://127.0.0.1:8000/api/manager/newborn/confirm/${id}`;
+        // fetch(url);
+        // const data = cows.filter((cow) => cow.co_id != id);
+        // setCows(data)
     }
 
     return (
