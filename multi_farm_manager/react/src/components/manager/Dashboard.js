@@ -18,6 +18,8 @@ import MilkCollection from './MilkCollection';
 //import { useFetch } from './useFetch';
 //import { useState } from 'react';
 
+//Workers:
+import TimeSchedule from '../cropworker/TimeSchedule';
 
 const Dashboard = ({type}) => {
     return (
@@ -66,6 +68,10 @@ const Dashboard = ({type}) => {
                                 </Route>
                                 <Route path="/customer/dairies">
                                     <DairyItems />
+                                </Route>
+
+                                <Route path="/cropworker/timeschedule">
+                                    <TimeSchedule />
                                 </Route>
 
                             </Switch>

@@ -37,6 +37,15 @@ const Navbar = ({typee}) => {
         );
     }
 
+    else if(typee=="cropworker")
+    {
+        return(
+        <Nav> 
+            <Link to="/cropworker/timeschedule"><button>Time Schedule</button></Link>
+        </Nav>
+        );
+    }
+
 }
 
 export default Navbar
