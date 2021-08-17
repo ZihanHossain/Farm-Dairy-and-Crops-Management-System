@@ -36,6 +36,7 @@ class Milk_CollectionController extends Controller
             array_push($total_milking_amount, $total_amount);
         }
 
+        
         return response()->json([$cows, $today_milking_amount, $total_milking_amount], 200);
 
         // return view('home_farm_manager.milk_collection')

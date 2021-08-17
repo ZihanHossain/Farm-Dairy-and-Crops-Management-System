@@ -1,5 +1,27 @@
+import React from 'react';
+import { Table } from 'react-bootstrap';
+import { useState } from 'react';
+import { UseTimeScheduleFetch } from './UseTimeScheduleFetch';
+
+import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+
 
 function TimeSchedule (){
+
+    const [timing, setTimeSchedule] = useState([]);
+    // const [process, setProcess] = useState([]);
+
+    UseTimeScheduleFetch('http://localhost:8000/api/cropworker/time/schedule', setTimeSchedule);
+
+    // const handleConfirm = (id) =>
+    // {
+    //     const url = `http://127.0.0.1:8000/api/manager/newborn/confirm/${id}`;
+    //     fetch(url);
+    //     const data = cows.filter((cow) => cow.co_id != id);
+    //     setCows(data)
+    // }
+    
     return (
         <div>
             <br/>
@@ -19,14 +41,20 @@ function TimeSchedule (){
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>01</td>
-                        <td>52</td>
-                        <td>5/2/2021</td>
-                        <td>8/2/2021</td>
-                        <td>Action</td>
-                        {/* <td><a href=""><i className="fa fa-pencil"></i>Details</a></td> */}
-                    </tr>
+                    {
+                        timing.map( timing =>
+                            (
+                                <tr>
+                                <td>{timing.s_id}</td>
+                                <td>{timing.i_id}</td>
+                                <td>{timing.starting_date}</td>
+                                <td>{timing.ending_date}</td>
+                                <td></td>
+                                </tr>
+                            )
+                        )
+                    }
+                    
                 </tbody>
             </table>
            </center>

@@ -35,3 +35,7 @@ Route::get('manager/newborn/confirm/{id}', 'App\Http\Controllers\New_Born_CowCon
 Route::post('login', 'App\Http\Controllers\LoginController@socialLogin');
 Route::get('manager/milkcollection', 'App\Http\Controllers\Milk_CollectionController@index');
 
+//worker
+
+Route::get('/cropworker/time/schedule','App\Http\Controllers\Time_ScheduleController@schedule');
+Route::get('/cropworker/time/schedule/{s_id}','App\Http\Controllers\Time_ScheduleController@process');
