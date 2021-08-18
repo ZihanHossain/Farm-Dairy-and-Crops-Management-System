@@ -10,6 +10,9 @@ import Cows from './Cows';
 import CustomerProfile from '../customer/CustomerProfile';
 import CropItems from '../customer/CropItems';
 import DairyItems from '../customer/DairyItems';
+import DairyItemDetails from '../customer/DairyItemDetails';
+import CropItemDetails from '../customer/CropItemDetails';
+import Cart from '../customer/Cart';
 
 import { Col, Container, Row, Button } from 'react-bootstrap';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
@@ -66,6 +69,15 @@ const Dashboard = ({type}) => {
                                 </Route>
                                 <Route path="/customer/dairies">
                                     <DairyItems />
+                                </Route>
+                                <Route path="/dairy/details/:id :name :price">
+                                    <DairyItemDetails />
+                                </Route>
+                                <Route path="/crop/details/:id :name :price">
+                                    <CropItemDetails />
+                                </Route>
+                                <Route path="/customer/cart">
+                                    <Cart />
                                 </Route>
 
                             </Switch>

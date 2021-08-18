@@ -40,4 +40,8 @@ Route::get('manager/milkcollection', 'App\Http\Controllers\Milk_CollectionContro
 Route::get('/customer/profile', 'App\Http\Controllers\CustomerProfileController@profile');
 Route::get('/customer/dairies', 'App\Http\Controllers\DairiesController@index');
 Route::get('/customer/crops', 'App\Http\Controllers\CorpsController@index');
-
+Route::post('/sign_up/form','App\Http\Controllers\CustomerRegistrationController@registration');
+Route::get('/customer/dairies/details/{id}', 'App\Http\Controllers\DairiesController@details');
+Route::post('/customer/dairies/details/{id}', 'App\Http\Controllers\CartController@index');
+Route::post('/customer/crops/details/{id}', 'App\Http\Controllers\CartController@index');
+Route::get('/customer/cart', 'App\Http\Controllers\CartController@cartView');

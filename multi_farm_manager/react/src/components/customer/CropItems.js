@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { UseCropItemFetch } from './UseCropItemFetch';
+import { Link } from 'react-router-dom';
 
 
 function CropItems() {
@@ -33,11 +34,10 @@ function CropItems() {
                                     <td>{item.i_id}</td>
                                     <td>{item.name}</td>
                                     <td>{item.price}</td>
-                                    <td><a href=""><i className="fa fa-pencil"></i>Details</a></td>
+                                    <td><Link to={`/crop/details/${item.i_id} ${item.name} ${item.price}`}>Details</Link></td>
                                 </tr>
                             )
                         )
-                        
                     }
                 </tbody>
             </table>
