@@ -15,11 +15,15 @@ import { Col, Container, Row, Button } from 'react-bootstrap';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import NewBornCows from './NewBornCows';
 import MilkCollection from './MilkCollection';
+import CowDetails from './CowDetails';
 //import { useFetch } from './useFetch';
 //import { useState } from 'react';
 
 //Workers:
 import TimeSchedule from '../cropworker/TimeSchedule';
+import ProfileSettings from './ProfileSettings';
+import Vaccination from './Vaccination';
+import VaccinationCheck from './VaccinationCheck';
 
 const Dashboard = ({type}) => {
     return (
@@ -56,10 +60,23 @@ const Dashboard = ({type}) => {
                                 <Route path='/manager/newborn'>
                                     <NewBornCows />
                                 </Route>
+                                <Route path='/manager/milkcollection/cowdetails/:id'>
+                                    <CowDetails />
+                                </Route>
                                 <Route path='/manager/milkcollection'>
                                     <MilkCollection />
                                 </Route>
+                                <Route path='/manager/profilesettings'>
+                                    <ProfileSettings />
+                                </Route>
+                                <Route path='/manager/vaccination/check/:id'>
+                                    <VaccinationCheck />
+                                </Route>
+                                <Route path='/manager/vaccination'>
+                                    <Vaccination />
+                                </Route>
 
+                                {/* -------->Customer<-------- */}
                                 <Route path="/customer/profile">
                                     <CustomerProfile />
                                 </Route>

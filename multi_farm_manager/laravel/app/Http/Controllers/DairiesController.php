@@ -15,9 +15,12 @@ class DairiesController extends Controller
         ->get();
         $p_item = ProducedItem::where('i_id', 1)
         ->get();
+		
+		return response()->json($item, 200);
 
-        return view('customer.dairyIndex')->with('items', $item)
+        /*return view('customer.dairyIndex')->with('items', $item)
                                         ->with('pItems', $p_item);
+		*/
     }
 
     public function details(Request $req, $i_id)

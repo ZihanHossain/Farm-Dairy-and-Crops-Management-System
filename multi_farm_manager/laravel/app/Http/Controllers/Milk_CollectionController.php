@@ -73,12 +73,14 @@ class Milk_CollectionController extends Controller
             ->first();
         $total_milk_price = $cow['milk'] * $item['price'];
 
-        return view('home_farm_manager.cow_milking_details')->with('milking_historys', $milkinng_historys)
-            ->with('feeds', $feeds)
-            ->with('cow', $cow)
-            ->with('vaccinated', $vaccinated)
-            ->with('total_feed_price', $total_feed_price)
-            ->with('total_milk_price', $total_milk_price);
+        return response()->json([$milkinng_historys, $feeds, $vaccinated, $total_feed_price, $total_milk_price, $cow], 200);
+
+        // return view('home_farm_manager.cow_milking_details')->with('milking_historys', $milkinng_historys)
+        //     ->with('feeds', $feeds)
+        //     ->with('cow', $cow)
+        //     ->with('vaccinated', $vaccinated)
+        //     ->with('total_feed_price', $total_feed_price)
+        //     ->with('total_milk_price', $total_milk_price);
     }
 
     function add_comment(Request $req, $co_id)

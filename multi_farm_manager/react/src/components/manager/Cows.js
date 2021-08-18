@@ -45,7 +45,7 @@ function Staffs() {
                             (
                                 <tr>
                                     <td>{cow.co_id}</td>
-                                    <td>df</td>
+                                    <td><img src={process.env.PUBLIC_URL + "/images/cow2.jpg"} width="50px"/></td>
                                     <td>{cow.gender}</td>
                                     <td>{cow.price}</td>
                                     <td>{cow.date_of_birth}</td>
