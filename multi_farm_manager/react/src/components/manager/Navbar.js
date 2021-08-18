@@ -38,7 +38,8 @@ const Navbar = ({typee}) => {
         <Nav> 
             <Link to="/customer/profile"> Profile </Link>|| 
             <Link to="/customer/dairies"> Dairy Items </Link>|| 
-            <Link to="/customer/crops"> Cops Items </Link>
+            <Link to="/customer/crops"> Cops Items </Link>||
+            <Link to="/customer/cart"> Cart </Link>
         </Nav>
         );
     }

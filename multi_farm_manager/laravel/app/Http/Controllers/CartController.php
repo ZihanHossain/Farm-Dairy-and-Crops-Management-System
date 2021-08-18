@@ -20,12 +20,16 @@ class CartController extends Controller
         $cart->i_price = $item['price'];
         $cart->amount = $req->amount;
         $cart->save();
-        return redirect('/customer/crops/cart');
+        return response()->json("success", 200);
+		
+		//return redirect('/customer/crops/cart');
     }
     public function cartView()
     {
         $cart_items = Cart::select('i_id','i_name','i_price','amount')->get();
-        return view('customer.cart')->with('cart_items', $cart_items);
+        return response()->json($cart_items, 200);
+		
+		//return view('customer.cart')->with('cart_items', $cart_items);
     }
 
     public function delete(Request $req, $i_id)

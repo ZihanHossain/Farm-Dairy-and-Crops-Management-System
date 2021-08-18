@@ -1,19 +1,19 @@
 import React from 'react';
 import { useState } from 'react';
-import { UseCropItemFetch } from './UseCropItemFetch';
+import { UseCartFetch } from './UseCartFetch';
 import { Link } from 'react-router-dom';
 
 
-function CropItems() {
-    const [cropItems, setCropItems] = useState([]);
+function Cart() {
+    const [cart, setCart] = useState([]);
 
-    UseCropItemFetch('http://localhost:8000/api/customer/crops', setCropItems);
+    UseCartFetch('http://localhost:8000/api/customer/cart', setCart);
 
     return (
         <div>
             <br/>
             <br/>
-            <center><b><h1> Crop Items </h1></b></center>
+            <center><b><h1> Cart </h1></b></center>
             <br/>
 
             <center>
@@ -23,21 +23,25 @@ function CropItems() {
                         <th>Product ID</th>
                         <th>Name</th>
                         <th>Price</th>
+                        <th>Amount</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     {
-                        cropItems.map( item =>
+                        cart.map( item =>
                             (
                                 <tr>
                                     <td>{item.i_id}</td>
-                                    <td>{item.name}</td>
-                                    <td>{item.price}</td>
-                                    <td><Link to={`/crop/details/${item.i_id} ${item.name} ${item.price}`}>Details</Link></td>
+                                    <td>{item.i_name}</td>
+                                    <td>{item.i_price}</td>
+                                    <td>{item.amount}</td>
+                                    <td><Link to={`/crop/details/${item.i_id} ${item.name} ${item.price}`}>Delete</Link></td>
+                                    <td><Link to={`/crop/details/${item.i_id} ${item.name} ${item.price}`}>Confirm</Link></td>
                                 </tr>
                             )
                         )
+                        
                     }
                 </tbody>
             </table>
@@ -46,4 +50,4 @@ function CropItems() {
     )
 }
 
-export default CropItems;
+export default Cart;

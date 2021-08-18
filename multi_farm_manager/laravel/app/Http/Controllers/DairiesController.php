@@ -25,11 +25,12 @@ class DairiesController extends Controller
 
     public function details(Request $req, $i_id)
     {
-        $item = Item::find($i_id);
-        $p_item = ProducedItem::find($i_id);
+        $p_item = ProducedItem::find($i_id)->first();
+		
+		return response()->json($p_item, 200);
 
-        return view('customer.dairyDetails')
+        /*return view('customer.dairyDetails')
                     ->with('item', $item)
-                    ->with('pItem', $p_item);
+                    ->with('pItem', $p_item);*/
     }
 }

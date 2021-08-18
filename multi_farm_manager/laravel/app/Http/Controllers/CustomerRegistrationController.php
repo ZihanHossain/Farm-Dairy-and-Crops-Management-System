@@ -33,6 +33,8 @@ class CustomerRegistrationController extends Controller
         $login->password = $req->password;
         $login->save();
         
-        return redirect('/login');
+        return response()->json("success", 200);
+		
+		//return redirect('/login');
     }
 }
