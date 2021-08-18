@@ -47,7 +47,7 @@ const Navbar = ({typee}) => {
     {
         return(
         <Nav> 
-            <Link to="/cropworker/timeschedule"><button>Time Schedule</button></Link>
+            <Link to="/cropworker/time/schedule"><button>Time Schedule</button></Link>
         </Nav>
         );
     }

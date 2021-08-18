@@ -87,7 +87,7 @@ const Dashboard = ({type}) => {
                                     <DairyItems />
                                 </Route>
 
-                                <Route path="/cropworker/timeschedule">
+                                <Route path="/cropworker/time/schedule">
                                     <TimeSchedule />
                                 </Route>
 

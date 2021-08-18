@@ -46,7 +46,14 @@ Route::get('manager/vaccination/check/{id}', 'App\Http\Controllers\Vaccinated_Co
 
 
 
+
+//worker
+
+Route::get('/cropworker/time/schedule','App\Http\Controllers\Time_ScheduleController@schedule');
+Route::get('/cropworker/time/schedule/{s_id}','App\Http\Controllers\Time_ScheduleController@process');
+=======
 //customer
 Route::get('/customer/profile', 'App\Http\Controllers\CustomerProfileController@profile');
 Route::get('/customer/dairies', 'App\Http\Controllers\DairiesController@index');
 Route::get('/customer/crops', 'App\Http\Controllers\CorpsController@index');
+
