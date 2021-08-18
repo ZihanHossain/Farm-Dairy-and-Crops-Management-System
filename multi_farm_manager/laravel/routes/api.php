@@ -34,6 +34,14 @@ Route::get('manager/newborn/confirm/{id}', 'App\Http\Controllers\New_Born_CowCon
 Route::post('login', 'App\Http\Controllers\LoginController@socialLogin');
 Route::get('manager/milkcollection', 'App\Http\Controllers\Milk_CollectionController@index');
 Route::get('manager/milkcollection/cowdetails/{id}', 'App\Http\Controllers\Milk_CollectionController@details');
+Route::get('manager/profilesettings', 'App\Http\Controllers\Admin_ProfileController@index');
+Route::post('manager/profilesettings/edit', 'App\Http\Controllers\Admin_ProfileController@edit_profile');
+
+Route::get('manager/vaccination', 'App\Http\Controllers\Vaccinated_CowController@index');
+Route::post('manager/vaccination/check', 'App\Http\Controllers\Vaccinated_CowController@vaccinate_done2');
+Route::get('manager/vaccination/check/{id}', 'App\Http\Controllers\Vaccinated_CowController@vaccination');
+
+
 
 
 
@@ -42,4 +50,3 @@ Route::get('manager/milkcollection/cowdetails/{id}', 'App\Http\Controllers\Milk_
 Route::get('/customer/profile', 'App\Http\Controllers\CustomerProfileController@profile');
 Route::get('/customer/dairies', 'App\Http\Controllers\DairiesController@index');
 Route::get('/customer/crops', 'App\Http\Controllers\CorpsController@index');
-
