@@ -22,6 +22,12 @@ const Navbar = ({typee}) => {
                 <Nav>
                     <Link to="/manager/milkcollection">Milk Collection</Link> 
                 </Nav>
+                <Nav>
+                    <Link to="/manager/profilesettings">Profile Settings</Link> 
+                </Nav>
+                <Nav>
+                    <Link to="/manager/vaccination">Vaccination</Link> 
+                </Nav>
             </Nav>
         );
     }

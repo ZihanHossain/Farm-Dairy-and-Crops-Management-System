@@ -21,6 +21,9 @@ import CowDetails from './CowDetails';
 
 //Workers:
 import TimeSchedule from '../cropworker/TimeSchedule';
+import ProfileSettings from './ProfileSettings';
+import Vaccination from './Vaccination';
+import VaccinationCheck from './VaccinationCheck';
 
 const Dashboard = ({type}) => {
     return (
@@ -62,6 +65,15 @@ const Dashboard = ({type}) => {
                                 </Route>
                                 <Route path='/manager/milkcollection'>
                                     <MilkCollection />
+                                </Route>
+                                <Route path='/manager/profilesettings'>
+                                    <ProfileSettings />
+                                </Route>
+                                <Route path='/manager/vaccination/check/:id'>
+                                    <VaccinationCheck />
+                                </Route>
+                                <Route path='/manager/vaccination'>
+                                    <Vaccination />
                                 </Route>
 
                                 {/* -------->Customer<-------- */}
