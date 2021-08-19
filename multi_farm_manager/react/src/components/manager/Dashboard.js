@@ -13,9 +13,10 @@ import DairyItems from '../customer/DairyItems';
 import DairyItemDetails from '../customer/DairyItemDetails';
 import CropItemDetails from '../customer/CropItemDetails';
 import Cart from '../customer/Cart';
+import { useCookies } from 'react-cookie';
 
 import { Col, Container, Row, Button } from 'react-bootstrap';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch, useHistory} from 'react-router-dom';
 import NewBornCows from './NewBornCows';
 import MilkCollection from './MilkCollection';
 import CowDetails from './CowDetails';
@@ -33,6 +34,20 @@ import Vaccination from './Vaccination';
 import VaccinationCheck from './VaccinationCheck';
 
 const Dashboard = ({type}) => {
+
+    const [cookies, setCookie, removeCookie] = useCookies(['type']);
+
+    const history = useHistory();
+
+    const handleLogout = () =>
+    {
+        removeCookie('name');
+        removeCookie('u_id');
+        removeCookie('email');
+        removeCookie('type');
+        history.push('/login');
+    }
+
     return (
         <div>
             <Container>
@@ -43,15 +58,13 @@ const Dashboard = ({type}) => {
                         </Col>
                         <Col sm={10}>
                             <div className="d-flex justify-content-end">
-                                <Button>Logout</Button>
+                                <Button onClick={handleLogout}>Logout</Button>
                             </div>
                             <Switch>
                                 <Route path='/manager/home'>
                                     <Home />
                                 </Route>
-                                <Route path='/manager/staff/add'>
-                                    <AddStaff />
-                                </Route>
+                                
                                 <Route path='/manager/staff/edit/:id'>
                                     <EditStaff />
                                 </Route>
