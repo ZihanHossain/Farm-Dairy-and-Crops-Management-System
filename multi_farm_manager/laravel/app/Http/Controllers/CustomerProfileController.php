@@ -8,10 +8,10 @@ use App\Models\Login_info;
 
 class CustomerProfileController extends Controller
 {
-    public function profile(Request $req)
+    public function profile(Request $req, $u_id)
     {
-        $login = Login_info::where('u_id', $req->session()->get('u_id'))->first();
-        $user = User::where('u_id', $req->session()->get('u_id'))->first();
+        $login = Login_info::where('u_id', $u_id)->first();
+        $user = User::where('u_id', $u_id)->first();
         
 		return response()->json($user, 200);
 		
@@ -25,7 +25,8 @@ class CustomerProfileController extends Controller
         $login = Login_info::find($u_id)->delete();
         $user = User::find($u_id)->delete();
 
-        $req->session()->flush();
-        return redirect('/login');
+        return response()->json('success', 200);
+        
+		//return redirect('/login');
     }
 }

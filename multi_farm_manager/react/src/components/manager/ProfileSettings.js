@@ -2,7 +2,9 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import { Container, Form, Button } from 'react-bootstrap'
 import { useProfileSettingsFetch } from './useProfileSettingsFetch';
+
 import { useCookies } from 'react-cookie';
+
 
 const ProfileSettings = () => {
     
@@ -10,7 +12,9 @@ const ProfileSettings = () => {
     const [username, setUserName] = useState([]);
     const [password, setPassword] = useState([]);
     const [email, setEmail] = useState([]);
+
     const [cookies, setCookie] = useCookies();
+
 
     useProfileSettingsFetch('http://127.0.0.1:8000/api/manager/profilesettings', setName, setUserName, setPassword, setEmail);
 
@@ -30,23 +34,29 @@ const ProfileSettings = () => {
         setEmail(e.target.value);
     }
 
+
     const handleSubmit = async(e) => {
+
         //e.preventDefault();
         const data = {
             name, username, password, email
         }
         const url = `http://127.0.0.1:8000/api/manager/profilesettings/edit`;
         const axios = require('axios').default;
+
         await axios({
+
             method: 'post',
             url: url,
             data:data,
         })
+
         .then(response => {
             console.log(response.data);
             setCookie('name', response.data.name, { path: '/' });
         });
         //window.location.reload();
+
         console.log(data);
     }
 

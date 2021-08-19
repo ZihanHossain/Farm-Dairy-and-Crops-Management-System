@@ -36,7 +36,9 @@ class CartController extends Controller
     {
         $cart_item = Cart::find($i_id)->delete();
 
-        return redirect('/customer/dairies/cart');
+        return response()->json('success', 200);
+		
+		//return redirect('/customer/dairies/cart');
     }
 
     public function cropIndex(Request $req, $i_id)

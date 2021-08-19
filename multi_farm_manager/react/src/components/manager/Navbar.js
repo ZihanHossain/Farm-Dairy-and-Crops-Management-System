@@ -30,6 +30,7 @@ const Navbar = ({typee}) => {
                     <Link to="/manager/milkcollection">Milk Collection</Link> 
                 </Nav>
                 <Nav>
+
                     <Link to="/manager/vaccination">Vaccination</Link> 
                 </Nav>
                 <Nav>
@@ -37,6 +38,7 @@ const Navbar = ({typee}) => {
                 </Nav>
                 <Nav>
                     <Link to="/manager/profilesettings">Profile Settings</Link> 
+
                 </Nav>
             </Nav>
         );
@@ -45,7 +47,10 @@ const Navbar = ({typee}) => {
     else if(typee=="customer")
     {
         return(
-        <Nav> 
+        <Nav>
+            <span>
+                <h3>Welcome: {cookies.name}</h3>
+            </span> 
             <Link to="/customer/profile"> Profile </Link>|| 
             <Link to="/customer/dairies"> Dairy Items </Link>|| 
             <Link to="/customer/crops"> Cops Items </Link>||
@@ -58,7 +63,9 @@ const Navbar = ({typee}) => {
     {
         return(
         <Nav> 
-            <Link to="/worker/time/schedule/">Time Schedule</Link>||
+
+            <Link to="/worker/time/schedule">Time Schedule</Link>||
+
             <Link to="/worker/give/attendance">Give Attendance</Link>
         </Nav>
         );

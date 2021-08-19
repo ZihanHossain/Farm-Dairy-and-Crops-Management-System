@@ -28,9 +28,9 @@ class CustomerRegistrationController extends Controller
         $login = new Login_info();
 
         $login->u_id = $user->u_id;
-        $login->user_name = $req['uname'];
+        $login->user_name = $req['username'];
         $login->password = $req['password'];
-        $login->password = $req->password;
+        //$login->password = $req->password;
         $login->save();
         
         return response()->json("success", 200);

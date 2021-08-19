@@ -57,7 +57,9 @@ class Admin_ProfileController extends Controller
         $login_info->save();
         // $req->session()->put('name', $req->name);
 
+
         return response()->json($user, 200);
+
         // return redirect('/home/profile');
     }
 }

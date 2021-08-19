@@ -14,6 +14,8 @@ const Vaccination = () => {
     return (
         <div>
              <h3>Vaccination Information</h3>
+
+
             <Table striped bordered hover size="sm">
                 <thead>
                     <tr>

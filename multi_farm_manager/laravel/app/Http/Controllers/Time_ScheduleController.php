@@ -32,7 +32,9 @@ class Time_ScheduleController extends Controller
         $process = Season_timing::where('s_id',$s_id)
                     ->get();
         
+
         return response()->json($process, 200);  
+
 
         //  return view('crop_worker.to_do_list')->with('OnProcessing', $process);  
 
