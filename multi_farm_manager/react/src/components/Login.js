@@ -50,7 +50,7 @@ function Login() {
             console.log(response.data);
             if(response.data.type == 'manager')
             {
-            history.push('/manager/home');
+                history.push('/manager/home');
             }
         })
     }
@@ -85,7 +85,7 @@ function Login() {
                     console.log(response.data);
                     if(response.data.type == 'manager')
                     {
-                    history.push('/manager');
+                    history.push('/manager/home');
                     }
                     else if(response.data.type == 'customer')
                     {

@@ -2,15 +2,17 @@ import React from 'react'
 import { Container, Form, Button, Row, Col } from 'react-bootstrap';
 import "react-datepicker/dist/react-datepicker.css";
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import DatePicker from "react-datepicker";
 
-function  AddCow() {
+const AddCow = ({callback}) => {
 
     const [baseprice, setBasePrice] = useState();
     const [gender, setGender] = useState();
     const [birtdate, setBirthDate] = useState(new Date());
     const [availability, setAvailablity] = useState();
+
+    const history = useHistory();
 
     //useShiftFetch('http://127.0.0.1:8000/api/manager/getshiftdetails', setShiftDetails);
 
@@ -41,9 +43,11 @@ function  AddCow() {
             method: 'post',
             url: url,
             data:data,
+        }).then(response => {
+            callback(response.data);
+            console.log(response.data);
+            history.push('/manager/cow')
         });
-        console.log(data);
-        <Link to="/manager/staff"></Link>
     }
 
     return (

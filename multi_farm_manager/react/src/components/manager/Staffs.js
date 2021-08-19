@@ -4,13 +4,19 @@ import { useState } from 'react';
 import { useStaffFetch } from './useStaffFetch';
 //import Staff from './Staff';
 import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, Route, Switch } from 'react-router-dom';
+import AddStaff from './AddStaff';
 
 function Staffs() {
 
     const [users, setUsers] = useState([]);
 
     useStaffFetch('http://127.0.0.1:8000/api/manager/staff', setUsers);
+
+    const addStaff = (data) =>
+    {
+        setUsers([...users, data]);
+    }
 
     const handleDelete = (id) =>
     {
@@ -22,6 +28,11 @@ function Staffs() {
 
     return (
         <div>
+            <Switch>
+                <Route path='/manager/staff/add'>
+                    <AddStaff callback={addStaff}/>
+                </Route>
+            </Switch>
             <h3>Staff Information</h3>
             <Link to={"/manager/staff/add"}><Button>Add</Button></Link>
             <Table striped bordered hover size="sm">

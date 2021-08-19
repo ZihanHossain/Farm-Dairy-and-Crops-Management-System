@@ -2,9 +2,9 @@ import React from 'react'
 import { Container, Form, Button, Row, Col, Dropdown } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 import { useShiftFetch } from './useShiftFetch';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
-function  AddStaff() {
+const AddStaff = ({callback}) => {
 
     const [name, setName] = useState();
     const [username, setUserName] = useState();
@@ -15,6 +15,8 @@ function  AddStaff() {
     const [gender, setGender] = useState();
     const [shiftid, setShiftId] = useState();
     const [shiftdetails, setShiftDetails] = useState([{id: "asd"}]);
+
+    const history = useHistory();
 
     useShiftFetch('http://127.0.0.1:8000/api/manager/getshiftdetails', setShiftDetails);
 
@@ -61,9 +63,11 @@ function  AddStaff() {
             method: 'post',
             url: url,
             data:data,
+        }).then(response => {
+            callback(response.data);
+            console.log(response.data);
+            history.push('/manager/staff');
         });
-        console.log(data);
-        <Link to="/manager/staff"></Link>
     }
 
     return (
