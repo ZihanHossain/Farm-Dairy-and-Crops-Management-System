@@ -31,7 +31,8 @@ Route::post('manager/cow/add', 'App\Http\Controllers\Cow_DetailsController@add_c
 
 Route::get('manager/newborn', 'App\Http\Controllers\New_Born_CowController@index');
 Route::get('manager/newborn/confirm/{id}', 'App\Http\Controllers\New_Born_CowController@confirm_cow');
-Route::post('login', 'App\Http\Controllers\LoginController@socialLogin');
+Route::post('login/google', 'App\Http\Controllers\LoginController@socialLogin');
+Route::post('login', 'App\Http\Controllers\LoginController@verify');
 Route::get('manager/milkcollection', 'App\Http\Controllers\Milk_CollectionController@index');
 Route::get('manager/milkcollection/cowdetails/{id}', 'App\Http\Controllers\Milk_CollectionController@details');
 Route::get('manager/profilesettings', 'App\Http\Controllers\Admin_ProfileController@index');
@@ -54,7 +55,7 @@ Route::get('/worker/give/attendance','App\Http\Controllers\Dairy_AttendanceContr
 Route::get('/customer/profile', 'App\Http\Controllers\CustomerProfileController@profile');
 Route::get('/customer/dairies', 'App\Http\Controllers\DairiesController@index');
 Route::get('/customer/crops', 'App\Http\Controllers\CorpsController@index');
-Route::post('/sign_up/form','App\Http\Controllers\CustomerRegistrationController@registration');
+Route::post('/sign_up/form', 'App\Http\Controllers\CustomerRegistrationController@registration');
 Route::get('/customer/dairies/details/{id}', 'App\Http\Controllers\DairiesController@details');
 Route::post('/customer/dairies/details/{id}', 'App\Http\Controllers\CartController@index');
 Route::post('/customer/crops/details/{id}', 'App\Http\Controllers\CartController@index');

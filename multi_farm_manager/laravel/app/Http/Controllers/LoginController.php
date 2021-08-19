@@ -32,18 +32,17 @@ class LoginController extends Controller
 
         //return view('crop_worker.dashboard');
 
-        $login = Login_info::where('user_name', $request->uname)
+        $login = Login_info::where('user_name', $request->username)
             ->where('password', $request->password)
             ->first();
 
-        $user = User::where('u_id', $login['u_id'])
-            ->first();
-
         if ($login) {
-            $request->session()->put('u_id', $user['u_id']);
-            $request->session()->put('name', $user['name']);
-            $request->session()->put('type', $user['type']);
-            $request->session()->put('image', $user['image']);
+            // $request->session()->put('u_id', $user['u_id']);
+            // $request->session()->put('name', $user['name']);
+            // $request->session()->put('type', $user['type']);
+            // $request->session()->put('image', $user['image']);
+            $user = User::where('u_id', $login['u_id'])
+                ->first();
 
             $cows = Cow::all();
 
@@ -60,30 +59,34 @@ class LoginController extends Controller
             }
 
             if ($user->type == 'customer') {
-                return redirect('/customer');
+
+                return response()->json($user, 200);
+                // return redirect('/customer');
             }
             if ($user->type == 'manager') {
-                return redirect('/home/dashboard');
+                return response()->json($user, 200);
             }
             if ($user->type == 'crop') {
-
-                return redirect('/crop_worker/dashboard');
+                return response()->json($user, 200);
             }
             if ($user->type == 'dairy') {
 
                 $log = Login_detail::insert(['u_id' => $user['u_id'], 'login_time' => date("h:i:s")]);
 
-                return redirect('/dairy_worker/dashboard');
+                return response()->json($user, 200);
             }
         } else {
-            return redirect('/login');
+
+            return response()->json('error', 200);
+            // return redirect('/login');
         }
     }
 
     public function socialLogin(Request $req)
     {
         if (($user = User::where('email', $req->email))) {
-            return response()->json('success', 200);
+            $user = User::where('email', $req->email)->first();
+            return response()->json($user, 200);
         } else {
             $user = new User();
 
