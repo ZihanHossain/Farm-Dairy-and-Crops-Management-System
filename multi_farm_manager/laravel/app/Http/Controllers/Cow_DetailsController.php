@@ -60,7 +60,7 @@ class Cow_DetailsController extends Controller
         $permanent_cow->co_id = $cow['co_id'];
         $permanent_cow->save();
 
-        return response()->json('success', 200);
+        return response()->json($cow, 200);
         // return redirect('/home/cow_info');
     }
 

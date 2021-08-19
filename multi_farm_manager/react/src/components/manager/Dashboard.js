@@ -71,9 +71,7 @@ const Dashboard = ({type}) => {
                                 <Route path='/manager/staff'>
                                     <Staffs />
                                 </Route>
-                                <Route path='/manager/cow/add'>
-                                    <AddCow />
-                                </Route>
+
                                 <Route path='/manager/cow'>
                                     <Cows />
                                 </Route>

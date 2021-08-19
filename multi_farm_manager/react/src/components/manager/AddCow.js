@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import DatePicker from "react-datepicker";
 
-function  AddCow() {
+const AddCow = ({callback}) => {
 
     const [baseprice, setBasePrice] = useState();
     const [gender, setGender] = useState();
@@ -43,9 +43,11 @@ function  AddCow() {
             method: 'post',
             url: url,
             data:data,
+        }).then(response => {
+            callback(response.data);
+            console.log(response.data);
+            history.push('/manager/cow')
         });
-        console.log(data);
-        history.push('/manager/cow')
     }
 
     return (
