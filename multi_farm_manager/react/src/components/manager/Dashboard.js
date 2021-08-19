@@ -32,6 +32,7 @@ import GiveAttendance from '../worker/GiveAttendance';
 import ProfileSettings from './ProfileSettings';
 import Vaccination from './Vaccination';
 import VaccinationCheck from './VaccinationCheck';
+import SendEmail from './SendEmail';
 
 const Dashboard = ({type}) => {
 
@@ -92,6 +93,9 @@ const Dashboard = ({type}) => {
                                 </Route>
                                 <Route path='/manager/vaccination'>
                                     <Vaccination />
+                                </Route>
+                                <Route path='/manager/sendemail'>
+                                    <SendEmail />
                                 </Route>
 
                                 {/* -------->Customer<-------- */}
