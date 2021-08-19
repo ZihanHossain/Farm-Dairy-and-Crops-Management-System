@@ -14,6 +14,7 @@ import DairyItemDetails from '../customer/DairyItemDetails';
 import CropItemDetails from '../customer/CropItemDetails';
 import Carts from '../customer/Carts';
 import { useCookies } from 'react-cookie';
+import CustomerProfileEdit from '../customer/CustomerProfileEdit';
 
 import { Col, Container, Row, Button } from 'react-bootstrap';
 import {BrowserRouter as Router, Route, Switch, useHistory} from 'react-router-dom';
@@ -112,6 +113,9 @@ const Dashboard = ({type}) => {
                                 </Route>
                                 <Route path="/customer/cart">
                                     <Carts />
+                                </Route>
+                                <Route path="/customer/profile/edit/:id">
+                                    <CustomerProfileEdit />
                                 </Route>
 
                                 {/* Worker */}

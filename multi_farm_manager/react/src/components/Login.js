@@ -141,11 +141,9 @@ function Login() {
                     </table>
                     <center><span>New Member,Please <Link to="/signup">Sign Up</Link></span></center>
                 </Form>
+                <button onClick={() => handleGoogleLogin(googleProvider)}>Google</button>
             </center>
-            <button onClick={() => handleGoogleLogin(googleProvider)}>Google</button>
-            <Link to="/customer"><button>Customer Dashboard</button></Link>
-
-            <Link to="/worker"><button>Worker Dashboard</button></Link>
+            
 
 
 

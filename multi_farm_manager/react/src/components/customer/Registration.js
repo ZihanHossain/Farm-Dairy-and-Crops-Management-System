@@ -5,11 +5,12 @@ import { Link } from 'react-router-dom';
 
 function Registration() {
 
+
         const [name, setName] = useState();
         const [username, setUserName] = useState();
         const [email, setEmail] = useState();
         const [password, setPassword] = useState();
-        const [type, setType] = useState();
+        //const [type, setType] = typ;
 
         const handleNameChange = (e) => {
             setName(e.target.value);
@@ -27,14 +28,12 @@ function Registration() {
             setPassword(e.target.value);
         }
     
-        const handleTypeChange = (e) => {
-            setType(e.target.value);
-        }
+        
 
         const handleSubmit = (e) => {
             //e.preventDefault();
             const data = {
-                name, username, password, email, type
+                name, username, password, email
             }
 
             const url = `http://localhost:8000/api/sign_up/form`;

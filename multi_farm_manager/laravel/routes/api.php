@@ -52,7 +52,8 @@ Route::get('/worker/time/schedule/{s_id}','App\Http\Controllers\Time_ScheduleCon
 Route::get('/worker/give/attendance','App\Http\Controllers\Dairy_AttendanceController@index');
 
 //customer
-Route::get('/customer/profile', 'App\Http\Controllers\CustomerProfileController@profile');
+Route::get('/customer/profile/{id}', 'App\Http\Controllers\CustomerProfileController@profile');
+Route::get('/customer/profile/delete/{id}', 'App\Http\Controllers\CustomerProfileController@deleteProfile');
 Route::get('/customer/dairies', 'App\Http\Controllers\DairiesController@index');
 Route::get('/customer/crops', 'App\Http\Controllers\CorpsController@index');
 Route::post('/sign_up/form', 'App\Http\Controllers\CustomerRegistrationController@registration');
