@@ -12,9 +12,11 @@ import CropItems from '../customer/CropItems';
 import DairyItems from '../customer/DairyItems';
 import DairyItemDetails from '../customer/DairyItemDetails';
 import CropItemDetails from '../customer/CropItemDetails';
+
 import Carts from '../customer/Carts';
 import { useCookies } from 'react-cookie';
 import CustomerProfileEdit from '../customer/CustomerProfileEdit';
+
 
 import { Col, Container, Row, Button } from 'react-bootstrap';
 import {BrowserRouter as Router, Route, Switch, useHistory} from 'react-router-dom';
@@ -33,6 +35,9 @@ import GiveAttendance from '../worker/GiveAttendance';
 import ProfileSettings from './ProfileSettings';
 import Vaccination from './Vaccination';
 import VaccinationCheck from './VaccinationCheck';
+
+import SendEmail from './SendEmail';
+
 
 const Dashboard = ({type}) => {
 
@@ -95,6 +100,11 @@ const Dashboard = ({type}) => {
                                     <Vaccination />
                                 </Route>
 
+                                <Route path='/manager/sendemail'>
+                                    <SendEmail />
+                                </Route>
+
+
                                 {/* -------->Customer<-------- */}
                                 <Route path="/customer/profile">
                                     <CustomerProfile />
@@ -120,6 +130,14 @@ const Dashboard = ({type}) => {
 
                                 {/* Worker */}
                                 <Route path="/worker/time/schedule">
+                                    <TimeSchedule />
+                                </Route>
+                                <Route path="/worker/give/attendance">
+                                    <GiveAttendance />
+                                </Route>
+
+                                {/* Worker */}
+                                <Route path="/worker/time/schedule/">
                                     <TimeSchedule />
                                 </Route>
                                 <Route path="/worker/give/attendance">

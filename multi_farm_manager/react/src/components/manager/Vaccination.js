@@ -14,7 +14,8 @@ const Vaccination = () => {
     return (
         <div>
              <h3>Vaccination Information</h3>
-            <Link to={"/manager/cow/add"}><Button>Add</Button></Link>
+
+
             <Table striped bordered hover size="sm">
                 <thead>
                     <tr>

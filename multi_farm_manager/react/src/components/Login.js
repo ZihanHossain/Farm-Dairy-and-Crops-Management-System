@@ -50,7 +50,9 @@ function Login() {
             console.log(response.data);
             if(response.data.type == 'manager')
             {
-            history.push('/manager/home');
+
+                history.push('/manager/home');
+
             }
         })
     }
@@ -85,15 +87,19 @@ function Login() {
                     console.log(response.data);
                     if(response.data.type == 'manager')
                     {
-                    history.push('/manager');
+
+                    history.push('/manager/home');
+
                     }
                     else if(response.data.type == 'customer')
                     {
                     history.push('/customer');
                     }
+
                     if(response.data.type == 'crop')
                     {
                     history.push('/cropworker');
+
                     }
                 }
             })
@@ -141,9 +147,13 @@ function Login() {
                     </table>
                     <center><span>New Member,Please <Link to="/signup">Sign Up</Link></span></center>
                 </Form>
-                <button onClick={() => handleGoogleLogin(googleProvider)}>Google</button>
+<
             </center>
-            
+            <button onClick={() => handleGoogleLogin(googleProvider)}>Google</button>
+            <Link to="/customer"><button>Customer Dashboard</button></Link>
+
+            <Link to="/worker"><button>Worker Dashboard</button></Link>
+
 
 
 

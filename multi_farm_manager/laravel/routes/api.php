@@ -50,6 +50,22 @@ Route::get('manager/vaccination/check/{id}', 'App\Http\Controllers\Vaccinated_Co
 Route::get('/worker/time/schedule','App\Http\Controllers\Time_ScheduleController@schedule');
 Route::get('/worker/time/schedule/{s_id}','App\Http\Controllers\Time_ScheduleController@process');
 Route::get('/worker/give/attendance','App\Http\Controllers\Dairy_AttendanceController@index');
+Route::get('/edit/profile', 'App\Http\Controllers\Profile_editController@edit');
+Route::post('/edit/profile', 'App\Http\Controllers\Profile_editController@update');
+
+
+Route::get('manager/vaccination', 'App\Http\Controllers\Vaccinated_CowController@index');
+Route::post('manager/vaccination/check', 'App\Http\Controllers\Vaccinated_CowController@vaccinate_done2');
+Route::get('manager/vaccination/check/{id}', 'App\Http\Controllers\Vaccinated_CowController@vaccination');
+
+
+
+
+//worker
+
+Route::get('/worker/time/schedule','App\Http\Controllers\Time_ScheduleController@schedule');
+Route::get('/worker/time/schedule/{s_id}','App\Http\Controllers\Time_ScheduleController@process');
+Route::get('/worker/give/attendance','App\Http\Controllers\Dairy_AttendanceController@index');
 
 //customer
 Route::get('/customer/profile/{id}', 'App\Http\Controllers\CustomerProfileController@profile');
@@ -60,6 +76,10 @@ Route::post('/sign_up/form', 'App\Http\Controllers\CustomerRegistrationControlle
 Route::get('/customer/dairies/details/{id}', 'App\Http\Controllers\DairiesController@details');
 Route::post('/customer/dairies/details/{id}', 'App\Http\Controllers\CartController@index');
 Route::post('/customer/crops/details/{id}', 'App\Http\Controllers\CartController@index');
+
 Route::get('/customer/cart', 'App\Http\Controllers\CartController@cartView');
 Route::get('/customer/cart/delete/{id}', 'App\Http\Controllers\CartController@delete');
 Route::get('/customer/cart/confirm/{id}', 'App\Http\Controllers\ConfirmOrderController@confirm');
+
+Route::get('/customer/cart', 'App\Http\Controllers\CartController@cartView');
+

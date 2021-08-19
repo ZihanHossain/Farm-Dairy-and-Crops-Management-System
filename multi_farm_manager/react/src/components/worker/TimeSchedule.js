@@ -13,7 +13,9 @@ function TimeSchedule (){
     const [pro, setProcess] = useState([]);
 
     UseTimeScheduleFetch('http://localhost:8000/api/worker/time/schedule', setTimeSchedule);
-    UseTimeScheduleFetch('http://localhost:8000/api/worker/time/schedule/{s_id}', setProcess);
+
+    // UseTimeScheduleFetch('http://localhost:8000/api/worker/time/schedule/{s_id}', setProcess);
+
 
     // const handleConfirm = (id) =>
     // {
@@ -43,18 +45,25 @@ function TimeSchedule (){
                 </thead>
                 <tbody>
                     {
-                        schedule.map( timing =>
+
+                        schedule.map( (timing,pro) =>
+
                             (
                                 <tr>
                                 <td>{timing.s_id}</td>
                                 <td>{timing.i_id}</td>
                                 <td>{timing.starting_date}</td>
                                 <td>{timing.ending_date}</td>
-                                {/* <td>{process.action}</td> */}
 
-                                <td><Link to={`/worker/time/schedule/{s_id}/${timing.action}`}>Process</Link></td>
+                                {/* <td><Link to={`/worker/time/schedule/${timing.action}`}>Process</Link></td> */}
+
+                                <td>
+                                    <Link to={`/worker/time/schedule/{s_id}/${timing.action}`}>
+                                    <Button>Process</Button>
+                                    </Link>
+                                </td>
                                 {/* <td>
-                                
+
                                     pro.map(process =>{
                                         if(timing.action == "active")
 
@@ -65,7 +74,6 @@ function TimeSchedule (){
                                         )
                                         )
 
-                                
                                 </td> */}
                                 </tr>
                             )

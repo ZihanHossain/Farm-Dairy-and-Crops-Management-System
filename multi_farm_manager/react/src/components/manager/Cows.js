@@ -4,7 +4,8 @@ import { useState } from 'react';
 import { useStaffFetch } from './useStaffFetch';
 //import Staff from './Staff';
 import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, Switch, Route } from 'react-router-dom';
+import AddCow from './AddCow';
 
 function Staffs() {
 
@@ -21,8 +22,17 @@ function Staffs() {
         console.log(cows);
     }
 
+    const addCow = (data) => {
+        setCows([...cows, data]);
+    }
+
     return (
         <div>
+            <Switch>
+                <Route path="/manager/cow/add">
+                    <AddCow callback={addCow}/>
+                </Route>
+            </Switch>
             <h3>Cow's Information</h3>
             <Link to={"/manager/cow/add"}><Button>Add</Button></Link>
             <Table striped bordered hover size="sm">
@@ -45,7 +55,9 @@ function Staffs() {
                             (
                                 <tr>
                                     <td>{cow.co_id}</td>
-                                    <td><img src={process.env.PUBLIC_URL + "/images/cow2.jpg"} width="50px"/></td>
+
+                                    <td><img src={process.env.PUBLIC_URL + `/images/${cow.image}`} width="50px"/></td>
+
                                     <td>{cow.gender}</td>
                                     <td>{cow.price}</td>
                                     <td>{cow.date_of_birth}</td>

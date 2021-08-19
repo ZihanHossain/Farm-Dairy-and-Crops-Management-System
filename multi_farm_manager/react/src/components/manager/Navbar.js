@@ -30,10 +30,15 @@ const Navbar = ({typee}) => {
                     <Link to="/manager/milkcollection">Milk Collection</Link> 
                 </Nav>
                 <Nav>
-                    <Link to="/manager/profilesettings">Profile Settings</Link> 
+
+                    <Link to="/manager/vaccination">Vaccination</Link> 
                 </Nav>
                 <Nav>
-                    <Link to="/manager/vaccination">Vaccination</Link> 
+                    <Link to="/manager/sendemail">Send Email</Link> 
+                </Nav>
+                <Nav>
+                    <Link to="/manager/profilesettings">Profile Settings</Link> 
+
                 </Nav>
             </Nav>
         );
@@ -58,7 +63,9 @@ const Navbar = ({typee}) => {
     {
         return(
         <Nav> 
+
             <Link to="/worker/time/schedule">Time Schedule</Link>||
+
             <Link to="/worker/give/attendance">Give Attendance</Link>
         </Nav>
         );
