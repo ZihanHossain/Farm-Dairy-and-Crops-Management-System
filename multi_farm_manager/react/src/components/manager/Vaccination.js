@@ -1,29 +1,19 @@
 import React from 'react'
-import { Table } from 'react-bootstrap'
-import { useState } from 'react';
-import { useStaffFetch } from './useStaffFetch';
-//import Staff from './Staff';
+import { useVaccinationFetch } from './useVaccinationFetch';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { Table } from 'react-bootstrap'
+import { useState } from 'react';
 
-function Staffs() {
+const Vaccination = () => {
 
     const [cows, setCows] = useState([]);
 
-    useStaffFetch('http://127.0.0.1:8000/api/manager/cow', setCows);
-
-    const handleDelete = (id) =>
-    {
-        const url = `http://127.0.0.1:8000/api/manager/cow/delete/${id}`;
-        fetch(url);
-        const data = cows.filter((cow) => cow.co_id != id);
-        setCows(data)
-        console.log(cows);
-    }
+    useVaccinationFetch('http://127.0.0.1:8000/api/manager/vaccination', setCows);
 
     return (
         <div>
-            <h3>Cow's Information</h3>
+             <h3>Vaccination Information</h3>
             <Link to={"/manager/cow/add"}><Button>Add</Button></Link>
             <Table striped bordered hover size="sm">
                 <thead>
@@ -49,7 +39,7 @@ function Staffs() {
                                     <td>{cow.gender}</td>
                                     <td>{cow.price}</td>
                                     <td>{cow.date_of_birth}</td>
-                                    <td><Button onClick={() => handleDelete(cow.co_id)}>Delete</Button></td>
+                                    <td><Link to={`/manager/vaccination/check/${cow.co_id}`}><Button>Check</Button></Link></td>
                                 </tr>
                             )
                         )
@@ -60,4 +50,4 @@ function Staffs() {
     )
 }
 
-export default Staffs
+export default Vaccination

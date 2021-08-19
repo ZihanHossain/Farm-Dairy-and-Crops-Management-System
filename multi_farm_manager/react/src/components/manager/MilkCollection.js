@@ -14,18 +14,18 @@ function MilkCollection() {
 
     useMilkCollectionFetch('http://127.0.0.1:8000/api/manager/milkcollection', setCows, setTodayMilkingAmount, setTotalMilkingAmount);
 
-    const handleDelete = (id) =>
-    {
-        const url = `http://127.0.0.1:8000/api/manager/cow/delete/${id}`;
-        fetch(url);
-        const data = cows.filter((cow) => cow.co_id != id);
-        setCows(data)
-        console.log(cows);
-    }
+    // const handleCheck = (id) =>
+    // {
+    //     const url = `http://127.0.0.1:8000/api/manager/cow/delete/${id}`;
+    //     fetch(url);
+    //     const data = cows.filter((cow) => cow.co_id != id);
+    //     setCows(data)
+    //     console.log(cows);
+    // }
 
     return (
         <div>
-            <h3>Cow's Information</h3>
+            <h3>Milk Collection</h3>
             <Link to={"/manager/cow/add"}><Button>Add</Button></Link>
             <Table striped bordered hover size="sm">
                 <thead>
@@ -51,7 +51,7 @@ function MilkCollection() {
                                     <td>{cow.gender}</td>
                                     <td>{todaymilkingamount[i]}</td>
                                     <td>{totalmilkingamount[i]}</td>
-                                    <td><Button onClick={() => handleDelete(cow.co_id)}>Delete</Button></td>
+                                    <td><Link to={`/manager/milkcollection/cowdetails/${cow.co_id}`}><Button>Check</Button></Link></td>
                                 </tr>
                             )
                         )

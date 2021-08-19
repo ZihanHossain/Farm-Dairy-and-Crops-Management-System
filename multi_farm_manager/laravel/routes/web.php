@@ -101,20 +101,9 @@ Route::group(['middleware'=>['dairysess'] ], function(){
 
 });
     
-    
-// Route::get('/logout','App\Http\Controllers\LogOutController@index');
 
 
 
-
-
-//dairy worker:
-Route::get('dairy_worker/dashboard','App\Http\Controllers\Dairy_WorkerController@dashboard');
-
-Route::get('/give/attendance','App\Http\Controllers\Dairy_AttendanceController@index');
-
-Route::get('collect/milk', 'App\Http\Controllers\MilkCollectionController@index');
-Route::post('/collect/milk', 'App\Http\Controllers\MilkCollectionController@insert');
 
 
 //Cutomer

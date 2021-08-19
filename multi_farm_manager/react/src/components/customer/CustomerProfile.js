@@ -19,45 +19,32 @@ function CustomerProfile() {
 
            <center>
                 <table className="table table-striped" style={{width:'50%'}} border="2px" align="center">
-                {
-                    users.map(user=>
-                        (
-                            <tr>
-                                <th>Name: </th>
-                                <td>{user.name}</td>
-                            </tr>
-                        )
-                        (   <tr>
-                                <th>ID: </th>
-                                <td>{user.id}</td>
-                            </tr>)
-                        (
-                            <tr>
-                                <th>Username: </th>
-                                <td>borshon</td>
-                            </tr>
-                        )
-                        (
-                            <tr>
-                                <th>Email Address: </th>
-                                <td>{user.email}</td>
-                            </tr>
-                        )
-                        (
-                            <tr>
-                                <th>Gender: </th>
-                                <td>{user.gender}</td>
-                            </tr>
-                        )
-                        (
-                            <tr>
-                                <th>User Type: </th>
-                                <td>{user.type}</td>
-                            </tr>
-                        )
-                    )
-                }     
-                    <br />
+                    <thead>
+                        <tr>
+                            <th>Name: </th>
+                            <th>ID: </th>
+                            <th>Username: </th>
+                            <th>Email Address: </th>
+                            <th>Gender: </th>
+                            <th>User Type: </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            users.map(user=>
+                                (
+                                    <tr>
+                                        <td>{user.name}</td>
+                                        <td>{user.u_id}</td>
+                                        <td>borshon</td>
+                                        <td>{user.email}</td>
+                                        <td>{user.gender}</td>
+                                        <td>{user.type}</td>
+                                    </tr>
+                                )
+                            )
+                        }
+                    </tbody>
                 </table>
                 <input type='button' name='submit' value='Edit'></input>
                 <input type='button' name='submit' value='Delete'></input>
