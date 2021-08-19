@@ -1,12 +1,19 @@
 import React from 'react'
 import { Nav } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
+import { useCookies } from 'react-cookie';
 
 const Navbar = ({typee}) => {
+
+    const [cookies, setCookie] = useCookies();
+
     if(typee=="manager")
     {
         return (
             <Nav className="flex-column">
+                <span>
+                    Welcome: {cookies.name}
+                </span>
                 <Nav>
                     <Link to="/manager/home">Home</Link> 
                 </Nav>
