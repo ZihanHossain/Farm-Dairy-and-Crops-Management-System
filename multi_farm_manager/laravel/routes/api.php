@@ -44,13 +44,11 @@ Route::get('manager/vaccination/check/{id}', 'App\Http\Controllers\Vaccinated_Co
 
 
 
-
-
-
 //worker
 
-Route::get('/cropworker/time/schedule','App\Http\Controllers\Time_ScheduleController@schedule');
-Route::get('/cropworker/time/schedule/{s_id}','App\Http\Controllers\Time_ScheduleController@process');
+Route::get('/worker/time/schedule','App\Http\Controllers\Time_ScheduleController@schedule');
+Route::get('/worker/time/schedule/{s_id}','App\Http\Controllers\Time_ScheduleController@process');
+Route::get('/worker/give/attendance','App\Http\Controllers\Dairy_AttendanceController@index');
 
 //customer
 Route::get('/customer/profile', 'App\Http\Controllers\CustomerProfileController@profile');

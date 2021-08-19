@@ -23,7 +23,11 @@ import CowDetails from './CowDetails';
 //import { useState } from 'react';
 
 //Workers:
-import TimeSchedule from '../cropworker/TimeSchedule';
+import TimeSchedule from '../worker/TimeSchedule';
+import GiveAttendance from '../worker/GiveAttendance';
+
+
+
 import ProfileSettings from './ProfileSettings';
 import Vaccination from './Vaccination';
 import VaccinationCheck from './VaccinationCheck';
@@ -99,8 +103,12 @@ const Dashboard = ({type}) => {
                                     <Cart />
                                 </Route>
 
-                                <Route path="/cropworker/time/schedule">
+                                {/* Worker */}
+                                <Route path="/worker/time/schedule">
                                     <TimeSchedule />
+                                </Route>
+                                <Route path="/worker/give/attendance">
+                                    <GiveAttendance />
                                 </Route>
 
                             </Switch>

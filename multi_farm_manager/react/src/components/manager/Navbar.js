@@ -44,11 +44,12 @@ const Navbar = ({typee}) => {
         );
     }
 
-    else if(typee=="cropworker")
+    else if(typee=="worker")
     {
         return(
         <Nav> 
-            <Link to="/cropworker/time/schedule"><button>Time Schedule</button></Link>
+            <Link to="/worker/time/schedule">Time Schedule</Link>||
+            <Link to="/worker/give/attendance">Give Attendance</Link>
         </Nav>
         );
     }

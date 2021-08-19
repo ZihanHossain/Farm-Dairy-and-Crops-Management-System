@@ -1,18 +1,18 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
 import { useState } from 'react';
-import { UseTimeScheduleFetch } from './UseTimeScheduleFetch';
+import { UseGiveAttendanceFetch } from './UseGiveAttendanceFetch';
 
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 
-function TimeSchedule (){
+function GiveAttendance (){
 
-    const [timing, setTimeSchedule] = useState([]);
-    // const [process, setProcess] = useState([]);
+    const [detail, setAttendance] = useState([]);
+    const [user, setUser] = useState([]);
 
-    UseTimeScheduleFetch('http://localhost:8000/api/cropworker/time/schedule', setTimeSchedule);
+    UseGiveAttendanceFetch('http://localhost:8000/api/worker/give/attendance', setAttendance, setUser);
 
     // const handleConfirm = (id) =>
     // {
@@ -26,30 +26,26 @@ function TimeSchedule (){
         <div>
             <br/>
             <br/>
-            <center><b><h1> Time Schedule </h1></b></center>
+            <center><b><h1> Give Attendance </h1></b></center>
             <br/>
 
             <center>
             <table id="datatable" className="table table-striped table-bordered" style={{width:'50%'}}>
                 <thead>
                     <tr>
-                        <th>Season ID</th>
-                        <th>Item ID</th>
-                        <th>Starting Date</th>
-                        <th>Ending Date</th>
-                        <th>Action</th>
+                        <th>Login ID</th>
+                        <th>User ID</th>
+                        <th>Login Time</th>
                     </tr>
                 </thead>
                 <tbody>
                     {
-                        timing.map( timing =>
+                        detail.map( detail =>
                             (
                                 <tr>
-                                <td>{timing.s_id}</td>
-                                <td>{timing.i_id}</td>
-                                <td>{timing.starting_date}</td>
-                                <td>{timing.ending_date}</td>
-                                <td></td>
+                                <td>{detail.l_id}</td>
+                                <td>{detail.u_id}</td>
+                                <td>{detail.login_time}</td>
                                 </tr>
                             )
                         )
@@ -63,4 +59,4 @@ function TimeSchedule (){
 )}
 
 
-export default TimeSchedule;
+export default GiveAttendance;

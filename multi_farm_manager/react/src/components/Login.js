@@ -49,7 +49,7 @@ function Login() {
             <Link to="/manager"><button>LOL</button></Link>
             <Link to="/customer"><button>Customer Dashboard</button></Link>
 
-            <Link to="/cropworker"><button>CropWorker Dashboard</button></Link>
+            <Link to="/worker"><button>Worker Dashboard</button></Link>
 
             <button onClick={() => handleGoogleLogin(googleProvider)}>Google</button>
             <Link to="/manager"><button>LOL</button></Link>

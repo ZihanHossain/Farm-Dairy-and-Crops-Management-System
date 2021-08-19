@@ -30,8 +30,8 @@ function App() {
             <Registration />
           </Route>
 
-          <Route path="/cropworker">
-            <Dashboard type='cropworker'/>
+          <Route path="/worker">
+            <Dashboard type='worker'/>
           </Route>
 
         </Switch>
