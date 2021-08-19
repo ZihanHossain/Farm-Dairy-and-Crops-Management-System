@@ -18,6 +18,7 @@ class Time_ScheduleController extends Controller
 
     public function process($s_id){
         
+        
         $process = Season_timing::find($s_id);
         //echo $process;
         $process->action = 'Inactive';
@@ -31,7 +32,7 @@ class Time_ScheduleController extends Controller
         $process = Season_timing::where('s_id',$s_id)
                     ->get();
         
-        return response()->json([$process], 200);  
+        return response()->json($process, 200);  
 
         //  return view('crop_worker.to_do_list')->with('OnProcessing', $process);  
 

@@ -91,9 +91,9 @@ function Login() {
                     {
                     history.push('/customer');
                     }
-                    if(response.data.type == 'crop')
+                    if(response.data.type == 'worker')
                     {
-                    history.push('/cropworker');
+                    history.push('/worker');
                     }
                 }
             })

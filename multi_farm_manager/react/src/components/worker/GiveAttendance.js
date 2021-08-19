@@ -10,9 +10,9 @@ import { Link } from 'react-router-dom';
 function GiveAttendance (){
 
     const [detail, setAttendance] = useState([]);
-    const [user, setUser] = useState([]);
+    // const [user, setUser] = useState([]);
 
-    UseGiveAttendanceFetch('http://localhost:8000/api/worker/give/attendance', setAttendance, setUser);
+    UseGiveAttendanceFetch('http://localhost:8000/api/worker/give/attendance', setAttendance);
 
     // const handleConfirm = (id) =>
     // {

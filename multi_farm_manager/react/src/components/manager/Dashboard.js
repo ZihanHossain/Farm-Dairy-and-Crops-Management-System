@@ -104,7 +104,7 @@ const Dashboard = ({type}) => {
                                 </Route>
 
                                 {/* Worker */}
-                                <Route path="/worker/time/schedule">
+                                <Route path="/worker/time/schedule/">
                                     <TimeSchedule />
                                 </Route>
                                 <Route path="/worker/give/attendance">
