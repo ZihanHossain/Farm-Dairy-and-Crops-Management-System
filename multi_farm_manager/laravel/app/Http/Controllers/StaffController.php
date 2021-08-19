@@ -114,7 +114,7 @@ class StaffController extends Controller
 
         $login_info->save();
 
-        return response()->json('success', 200);
+        return response()->json($user, 200);
         // return redirect('home/dairyfarm/staff');
     }
 

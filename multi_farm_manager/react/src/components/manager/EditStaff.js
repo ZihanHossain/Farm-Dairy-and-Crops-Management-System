@@ -52,20 +52,20 @@ function  EditStaff() {
         setShiftId(e);
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         //e.preventDefault();
         const data = {
             name, username, password, type, email, salary, gender, shiftid
         }
         const url = `http://127.0.0.1:8000/api/manager/staff/edit/${sid}`;
         const axios = require('axios').default;
-        axios({
+        await axios({
             method: 'post',
             url: url,
             data:data,
         });
         console.log(data);
-        <Link to="/manager/staff"></Link>
+        window.location.reload();
     }
 
     return (

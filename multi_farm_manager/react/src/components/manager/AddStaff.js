@@ -7,13 +7,21 @@ import { Link, useHistory } from 'react-router-dom';
 const AddStaff = ({callback}) => {
 
     const [name, setName] = useState();
+    const [nmame, setNmame] = useState();
     const [username, setUserName] = useState();
+    const [umsername, setUmserName] = useState();
     const [password, setPassword] = useState();
+    const [pmassword, setPmassword] = useState();
     const [type, setType] = useState();
+    const [tmype, setTmype] = useState();
     const [email, setEmail] = useState();
+    const [emmail, setEmmail] = useState();
     const [salary, setSalary] = useState();
+    const [smalary, setSmalary] = useState();
     const [gender, setGender] = useState();
+    const [gmender, setGmender] = useState();
     const [shiftid, setShiftId] = useState();
+    const [smhiftid, setSmhiftId] = useState();
     const [shiftdetails, setShiftDetails] = useState([{id: "asd"}]);
 
     const history = useHistory();
@@ -53,21 +61,53 @@ const AddStaff = ({callback}) => {
     }
 
     const handleSubmit = (e) => {
-        //e.preventDefault();
-        const data = {
-            name, username, password, type, email, salary, gender, shiftid
+        if(name == null)
+        {
+            setNmame('PLease enter name')
         }
-        const url = `http://127.0.0.1:8000/api/manager/staff/add`;
-        const axios = require('axios').default;
-        axios({
-            method: 'post',
-            url: url,
-            data:data,
-        }).then(response => {
-            callback(response.data);
-            console.log(response.data);
-            history.push('/manager/staff');
-        });
+        if(email == null)
+        {
+            setEmmail('PLease enter email')
+        }
+        if(username == null)
+        {
+            setUmserName('PLease enter username')
+        }
+        if(password == null)
+        {
+            setPmassword('PLease enter password')
+        }
+        if(gender == null)
+        {
+            setGmender('PLease select a gender')
+        }
+        if(type == null)
+        {
+            setTmype('PLease select a type')
+        }
+        if(salary == null)
+        {
+            setSmalary('PLease enter salary')
+        }
+        if(name != null && email != null && username != null && password != null && gender != null && type != null && salary != null)
+        {
+            const data = {
+                name, username, password, type, email, salary, gender, shiftid
+            }
+            const url = `http://127.0.0.1:8000/api/manager/staff/add`;
+            const axios = require('axios').default;
+            axios({
+                method: 'post',
+                url: url,
+                data:data,
+            }).then(response => {
+                callback(response.data);
+                console.log(response.data);
+                history.push('/manager/staff');
+            });
+        }
+        //e.preventDefault();
+        
     }
 
     return (
@@ -77,26 +117,31 @@ const AddStaff = ({callback}) => {
                     <Form.Group className="mb-3" >
                         <Form.Label>Name</Form.Label>
                         <Form.Control type="text" onChange={handleNameChange} placeholder="Enter name" />
+                        {nmame}
                     </Form.Group>
 
                     <Form.Group className="mb-3" >
                         <Form.Label>Email</Form.Label>
                         <Form.Control type="email" onChange={handleEmailChange} placeholder="Enter email" />
+                        {emmail}
                     </Form.Group>
 
                     <Form.Group className="mb-3" >
                         <Form.Label>User Name</Form.Label>
                         <Form.Control type="text" onChange={handleUserNameChange} placeholder="Enter name" />
+                        {umsername}
                     </Form.Group>
 
                     <Form.Group className="mb-3" >
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" onChange={handlePasswordChange} placeholder="Password" />
+                        {pmassword}
                     </Form.Group>
 
                     <Form.Group className="mb-3" >
                         <Form.Label>Salary</Form.Label>
                         <Form.Control type="number" onChange={handleSalaryChange} placeholder="Salary" />
+                        {smalary}
                     </Form.Group>
 
                     <Form.Group>
@@ -137,6 +182,7 @@ const AddStaff = ({callback}) => {
                         id="name"
                         />
                     </Col>
+                    {gmender}
                     </Form.Group>
 
                     <Form.Group as={Row} className="mb-3">
@@ -161,6 +207,7 @@ const AddStaff = ({callback}) => {
                         id="name"
                         />
                     </Col>
+                    {tmype}
                     </Form.Group>
                     
                     <Button variant="primary" onClick={handleSubmit}>

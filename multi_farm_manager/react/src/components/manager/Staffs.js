@@ -6,8 +6,13 @@ import { useStaffFetch } from './useStaffFetch';
 import { Button } from 'react-bootstrap';
 import { Link, Route, Switch } from 'react-router-dom';
 import AddStaff from './AddStaff';
+import ReactExport from "react-export-excel";
 
 function Staffs() {
+
+    const ExcelFile = ReactExport.ExcelFile;
+    const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
+    const ExcelColumn = ReactExport.ExcelFile.ExcelColumn;
 
     const [users, setUsers] = useState([]);
 
@@ -35,6 +40,15 @@ function Staffs() {
             </Switch>
             <h3>Staff Information</h3>
             <Link to={"/manager/staff/add"}><Button>Add</Button></Link>
+            <ExcelFile element={<Button variant="info">Download Staff List</Button>}>
+                <ExcelSheet data={users} name="Employees">
+                    <ExcelColumn label="Name" value="name"/>
+                    <ExcelColumn label="Email" value="email"/>
+                    <ExcelColumn label="Gender" value="gender"/>
+                    <ExcelColumn label="Worker Type" value="type"/>
+                    <ExcelColumn label="Salary" value="salary"/>
+                </ExcelSheet>
+            </ExcelFile>
             <Table striped bordered hover size="sm">
                 <thead>
                     <tr>
@@ -54,7 +68,7 @@ function Staffs() {
                             (
                                 <tr>
                                     <td>{user.u_id}</td>
-                                    <td>df</td>
+                                    <td><img src={process.env.PUBLIC_URL + `/images/${user.image}`} width="50px"/></td>
                                     <td>{user.name}</td>
                                     <td>{user.type}</td>
                                     <td><Button onClick={() => handleDelete(user.u_id)}>Delete</Button> <Link to={`/manager/staff/edit/${user.u_id}`}><Button>Edit</Button></Link></td>
