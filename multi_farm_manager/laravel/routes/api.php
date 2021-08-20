@@ -47,9 +47,9 @@ Route::get('manager/vaccination/check/{id}', 'App\Http\Controllers\Vaccinated_Co
 
 //worker
 
-Route::get('/worker/time/schedule','App\Http\Controllers\Time_ScheduleController@schedule');
-Route::get('/worker/time/schedule/{s_id}','App\Http\Controllers\Time_ScheduleController@process');
-Route::get('/worker/give/attendance','App\Http\Controllers\Dairy_AttendanceController@index');
+Route::get('/worker/time/schedule', 'App\Http\Controllers\Time_ScheduleController@schedule');
+Route::get('/worker/time/schedule/{s_id}', 'App\Http\Controllers\Time_ScheduleController@process');
+Route::get('/worker/give/attendance', 'App\Http\Controllers\Dairy_AttendanceController@index');
 Route::get('/edit/profile', 'App\Http\Controllers\Profile_editController@edit');
 Route::post('/edit/profile', 'App\Http\Controllers\Profile_editController@update');
 
@@ -63,9 +63,9 @@ Route::get('manager/vaccination/check/{id}', 'App\Http\Controllers\Vaccinated_Co
 
 //worker
 
-Route::get('/worker/time/schedule','App\Http\Controllers\Time_ScheduleController@schedule');
-Route::get('/worker/time/schedule/{s_id}','App\Http\Controllers\Time_ScheduleController@process');
-Route::get('/worker/give/attendance','App\Http\Controllers\Dairy_AttendanceController@index');
+Route::get('/worker/time/schedule', 'App\Http\Controllers\Time_ScheduleController@schedule');
+Route::get('/worker/time/schedule/{s_id}', 'App\Http\Controllers\Time_ScheduleController@process');
+Route::get('/worker/give/attendance', 'App\Http\Controllers\Dairy_AttendanceController@index');
 
 //customer
 Route::get('/customer/profile/{id}', 'App\Http\Controllers\CustomerProfileController@profile');
@@ -82,4 +82,3 @@ Route::get('/customer/cart/delete/{id}', 'App\Http\Controllers\CartController@de
 Route::get('/customer/cart/confirm/{id}', 'App\Http\Controllers\ConfirmOrderController@confirm');
 
 Route::get('/customer/cart', 'App\Http\Controllers\CartController@cartView');
-
