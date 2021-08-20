@@ -66,15 +66,16 @@ class LoginController extends Controller
             if ($user->type == 'manager') {
                 return response()->json($user, 200);
             }
-            if ($user->type == 'crop') {
-                return response()->json($user, 200);
-            }
-            if ($user->type == 'dairy') {
-
+            if ($user->type == 'worker') {
                 $log = Login_detail::insert(['u_id' => $user['u_id'], 'login_time' => date("h:i:s")]);
-
-                return response()->json($user, 200);
+                return response()->json([$log, $user], 200);
             }
+            // if ($user->type == 'dairy') {
+
+            //     $log = Login_detail::insert(['u_id' => $user['u_id'], 'login_time' => date("h:i:s")]);
+
+            //     return response()->json($user, 200);
+            // }
         } else {
 
             return response()->json('error', 200);

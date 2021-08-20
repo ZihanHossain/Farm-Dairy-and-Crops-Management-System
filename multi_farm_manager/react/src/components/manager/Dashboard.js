@@ -136,13 +136,6 @@ const Dashboard = ({type}) => {
                                     <GiveAttendance />
                                 </Route>
 
-                                {/* Worker */}
-                                <Route path="/worker/time/schedule/">
-                                    <TimeSchedule />
-                                </Route>
-                                <Route path="/worker/give/attendance">
-                                    <GiveAttendance />
-                                </Route>
 
                             </Switch>
                         </Col>

@@ -62,10 +62,11 @@ const Navbar = ({typee}) => {
     else if(typee=="worker")
     {
         return(
-        <Nav> 
-
-            <Link to="/worker/time/schedule">Time Schedule</Link>||
-
+        <Nav>     
+            <span>
+                <h3>Welcome: {cookies.name}</h3>
+            </span> 
+            <Link to="/worker/time/schedule/">Time Schedule</Link>||
             <Link to="/worker/give/attendance">Give Attendance</Link>
         </Nav>
         );
