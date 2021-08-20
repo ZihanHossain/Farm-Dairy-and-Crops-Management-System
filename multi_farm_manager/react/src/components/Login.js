@@ -153,10 +153,6 @@ function Login() {
 
             <Link to="/worker"><button>Worker Dashboard</button></Link>
             </div>
-
-
-
-        </div>
     )
 }
 
