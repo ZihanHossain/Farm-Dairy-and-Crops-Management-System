@@ -152,11 +152,7 @@ function Login() {
             <Link to="/customer"><button>Customer Dashboard</button></Link>
 
             <Link to="/worker"><button>Worker Dashboard</button></Link>
-
-
-
-
-        </div>
+            </div>
     )
 }
 
