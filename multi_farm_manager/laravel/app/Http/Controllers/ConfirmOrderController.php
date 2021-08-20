@@ -24,9 +24,9 @@ class ConfirmOrderController extends Controller
         $confirm->save();
 
         $cart = Cart::find($i_id)->delete();
-        
+
         return response()->json('success', 200);
-		
-		//return redirect('/customer/crops/cart');
+
+        //return redirect('/customer/crops/cart');
     }
 }

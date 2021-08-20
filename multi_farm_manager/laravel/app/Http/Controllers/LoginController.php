@@ -66,7 +66,7 @@ class LoginController extends Controller
             if ($user->type == 'manager') {
                 return response()->json($user, 200);
             }
-            if ($user->type == 'crop') {
+            if ($user->type == 'worker') {
                 return response()->json($user, 200);
             }
             if ($user->type == 'dairy') {

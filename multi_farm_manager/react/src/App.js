@@ -21,9 +21,6 @@ function App() {
           <Route path="/manager">
             <Dashboard type='manager'/>
           </Route>
-          <Route path="/test">
-            <TestPDF />
-          </Route>
     
           <Route path="/customer">
             <Dashboard type='customer'/>
@@ -33,10 +30,6 @@ function App() {
           </Route>
           <Route path='/test'>
             <TestExel />
-          </Route>
-
-          <Route path="/worker">
-            <Dashboard type='worker'/>
           </Route>
 
           <Route path="/worker">

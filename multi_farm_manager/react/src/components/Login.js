@@ -96,9 +96,9 @@ function Login() {
                     history.push('/customer');
                     }
 
-                    if(response.data.type == 'crop')
+                    if(response.data.type == 'worker')
                     {
-                    history.push('/cropworker');
+                    history.push('/worker');
 
                     }
                 }
@@ -147,7 +147,6 @@ function Login() {
                     </table>
                     <center><span>New Member,Please <Link to="/signup">Sign Up</Link></span></center>
                 </Form>
-<
             </center>
             <button onClick={() => handleGoogleLogin(googleProvider)}>Google</button>
             <Link to="/customer"><button>Customer Dashboard</button></Link>
